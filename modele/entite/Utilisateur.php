@@ -35,28 +35,13 @@ class Utilisateur
     private $motDePasse;
 
     /**
-     * @var $date_connexion string Date de la dernière connexion de l'utilisateur
+     * @var $dateConnexion string Date de la dernière connexion de l'utilisateur
      */
-    private $date_connexion;
+    private $dateConnexion;
 
-    /**
-     * @param int $id
-     * @param string $photo
-     * @param string $mel
-     * @param string $prenom
-     * @param string $nom
-     * @param string $motDePasse
-     * @param string $date_connexion
-     */
-    public function __construct(int $id, string $photo, string $mel, string $prenom, string $nom, string $motDePasse, string $date_connexion)
+    public function __construct()
     {
-        $this->id = $id;
-        $this->photo = $photo;
-        $this->mel = $mel;
-        $this->prenom = $prenom;
-        $this->nom = $nom;
-        $this->motDePasse = $motDePasse;
-        $this->date_connexion = $date_connexion;
+
     }
 
     /**
@@ -160,15 +145,15 @@ class Utilisateur
      */
     public function getDateConnexion(): string
     {
-        return $this->date_connexion;
+        return $this->dateConnexion;
     }
 
     /**
-     * @param string $date_connexion
+     * @param string $dateConnexion
      */
-    public function setDateConnexion(string $date_connexion): void
+    public function setDateConnexion(string $dateConnexion): void
     {
-        $this->date_connexion = $date_connexion;
+        $this->dateConnexion = $dateConnexion;
     }
 
     /**
