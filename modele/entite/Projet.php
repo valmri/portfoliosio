@@ -59,32 +59,9 @@ class Projet
      */
     private $liens;
 
-    /**
-     * @param int $id
-     * @param int $id_utilisateur
-     * @param string $image
-     * @param string $lieu
-     * @param string $logo
-     * @param string $organisation
-     * @param string $titre
-     * @param string $technologies
-     * @param string $annee
-     * @param string $contexte
-     * @param string $liens
-     */
-    public function __construct(int $id, int $id_utilisateur, string $image, string $lieu, string $logo, string $organisation, string $titre, string $technologies, string $annee, string $contexte, string $liens)
+    public function __construct()
     {
-        $this->id = $id;
-        $this->id_utilisateur = $id_utilisateur;
-        $this->image = $image;
-        $this->lieu = $lieu;
-        $this->logo = $logo;
-        $this->organisation = $organisation;
-        $this->titre = $titre;
-        $this->technologies = $technologies;
-        $this->annee = $annee;
-        $this->contexte = $contexte;
-        $this->liens = $liens;
+
     }
 
     /**
