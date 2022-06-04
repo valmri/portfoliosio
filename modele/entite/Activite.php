@@ -14,14 +14,9 @@ class Activite
      */
     private $intitule;
 
-    /**
-     * @param int $id
-     * @param string $intitule
-     */
-    public function __construct(int $id, string $intitule)
+    public function __construct()
     {
-        $this->id = $id;
-        $this->intitule = $intitule;
+
     }
 
     /**
