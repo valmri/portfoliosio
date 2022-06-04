@@ -19,16 +19,9 @@ class Competence
      */
     private $intitule;
 
-    /**
-     * @param int $id
-     * @param int $id_activite
-     * @param string $intitule
-     */
-    public function __construct(int $id, int $id_activite, string $intitule)
+    public function __construct()
     {
-        $this->id = $id;
-        $this->id_activite = $id_activite;
-        $this->intitule = $intitule;
+
     }
 
     /**
