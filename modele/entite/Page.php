@@ -29,20 +29,9 @@ class Page
      */
     private $cle;
 
-    /**
-     * @param int $id
-     * @param int $id_utilisateur
-     * @param string $titre
-     * @param string $contenu
-     * @param string $cle
-     */
-    public function __construct(int $id, int $id_utilisateur, string $titre, string $contenu, string $cle)
+    public function __construct()
     {
-        $this->id = $id;
-        $this->id_utilisateur = $id_utilisateur;
-        $this->titre = $titre;
-        $this->contenu = $contenu;
-        $this->cle = $cle;
+
     }
 
     /**
