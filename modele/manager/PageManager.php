@@ -121,4 +121,25 @@ class PageManager extends ManagerPrincipal
 
     }
 
+    public function getPageByCle(string $cle) {
+
+        try {
+
+            $pdo = $this->getPDO();
+            $sql = "select * from page where cle = :cle;";
+            $requete = $pdo->prepare($sql);
+            $requete->bindValue(':cle', $cle, PDO::PARAM_STR);
+            $requete->execute();
+            $resultat = $requete->fetchObject('entite\Page');
+
+        } catch (Exception $e) {
+
+            $resultat = $e;
+
+        }
+
+        return $resultat;
+
+    }
+
 }
