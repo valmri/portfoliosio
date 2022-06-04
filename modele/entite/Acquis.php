@@ -24,18 +24,9 @@ class Acquis
      */
     private $description;
 
-    /**
-     * @param int $id
-     * @param int $id_projet
-     * @param int $id_competence
-     * @param string $description
-     */
-    public function __construct(int $id, int $id_projet, int $id_competence, string $description)
+    public function __construct()
     {
-        $this->id = $id;
-        $this->id_projet = $id_projet;
-        $this->id_competence = $id_competence;
-        $this->description = $description;
+
     }
 
     /**
