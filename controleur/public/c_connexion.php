@@ -19,12 +19,17 @@ if(isset($_POST['identifiant']) && isset($_POST['motDePasse']) && !empty($_POST[
         session_start();
         $_SESSION['utilisateur'] = $utilisateur;
 
-        // Redirection
-        header('Location: ?page=dashboard');
+        // Chargement du contrôleur
+        require_once './controleur/admin/c_dashboard.php';
 
     } catch (Exception $e) {
         $erreur = $e->getMessage();
     }
 
 }
-require_once  './vue/public/v_connexion.php';
+
+if(isset($_SESSION['utilisateur'])) {
+    require_once  './vue/admin/v_dashboard.php';
+} else {
+    require_once  './vue/public/v_connexion.php';
+}
