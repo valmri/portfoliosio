@@ -1,8 +1,4 @@
 <?php
-/**
- * Explication : Génération du menu de façon automatique
- */
-
 // Importation des fichiers
 require_once './modele/manager/PageManager.php';
 require_once './modele/entite/Page.php';

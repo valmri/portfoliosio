@@ -13,7 +13,9 @@ $direction = controleurPrincipal($controller);
 // Chargement des vues principales
 require_once './vue/elements/head.php';
 require_once './vue/elements/header.php';
-require_once './vue/elements/menu.php';
+
+// Chargement du menu de façon automatique
+require_once './controleur/elements/c_menu.php';
 
 // Chargement du contrôleur qui chargera la vue
 require_once './controleur/'.$direction['chemin'];
