@@ -6,6 +6,7 @@ use entite\Competence;
 use modele\manager\ManagerPrincipal;
 use mysql_xdevapi\Exception;
 use PDO;
+use PDOException;
 
 class CompetenceManager extends ManagerPrincipal
 {
@@ -109,6 +110,37 @@ class CompetenceManager extends ManagerPrincipal
             $resultat = $requete->execute();
 
         } catch (Exception $e) {
+
+            $resultat = $e;
+
+        }
+
+        return $resultat;
+
+    }
+
+    /**
+     * Récupération des compétences d'un projet
+     * @param int $idProjet
+     * @return array|PDOException
+     */
+    public function getCompetencesByIdProjet(int $idProjet)
+    {
+
+        try {
+
+            $connexion = $this->getPdo();
+            $sql = 'select a.id as id_activite, c.intitule as intitule_competence, ac.description as acquis from competence c 
+                    join activite a on c.id_activite = a.id
+                    join acquis ac on c.id = ac.id_competence  
+                    where ac.id_projet = :id 
+                    order by a.id';
+            $requete = $connexion->prepare($sql);
+            $requete->bindValue(':id', $idProjet, PDO::PARAM_INT);
+            $requete->execute();
+            $resultat = $requete->fetchAll(PDO::FETCH_ASSOC);
+
+        } catch (PDOException $e) {
 
             $resultat = $e;
 

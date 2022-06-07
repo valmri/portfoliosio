@@ -96,7 +96,7 @@ class AcquisManager extends ManagerPrincipal
     }
 
     /**
-     * Suppression d'un acquisa
+     * Suppression d'un acquis
      * @param int $id
      * @return bool|Exception
      */

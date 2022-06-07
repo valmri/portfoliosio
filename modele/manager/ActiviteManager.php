@@ -116,4 +116,31 @@ class ActiviteManager extends ManagerPrincipal
 
     }
 
+    public function getActivitesByIdProjet(int $idProjet)
+    {
+
+        try {
+
+            $connexion = $this->getPdo();
+            $sql = 'select a.id as id_activite, a.intitule  as intitule_activite from competence c 
+                    join activite a on c.id_activite  = a.id
+                    join acquis ac on c.id = ac.id_competence 
+                    where ac.id_projet  = :id 
+                    group by a.id
+                    order by a.id';
+            $requete = $connexion->prepare($sql);
+            $requete->bindValue(':id', $idProjet, PDO::PARAM_INT);
+            $requete->execute();
+            $resultat = $requete->fetchAll(PDO::FETCH_ASSOC);
+
+        } catch (PDOException $e) {
+
+            $resultat = $e;
+
+        }
+
+        return $resultat;
+
+    }
+
 }
