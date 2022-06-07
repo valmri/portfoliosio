@@ -10,6 +10,13 @@ if(isset($_GET['page'])) {
 
 $direction = controleurPrincipal($controller);
 
+// Configuration de l'entête
+$moi = array(
+    'nom' => 'Nom',
+    'prenom' => 'Prenom',
+    'status' => 'Étudiant en informatique'
+);
+
 // Chargement des vues principales
 require_once './vue/elements/head.php';
 require_once './vue/elements/header.php';
