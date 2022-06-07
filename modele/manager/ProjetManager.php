@@ -2,10 +2,14 @@
 
 namespace manager;
 
+require_once './modele/exception/ProjetInvalide.php';
+
 use entite\Projet;
+use exception\ProjetInvalide;
 use modele\manager\ManagerPrincipal;
 use mysql_xdevapi\Exception;
 use PDO;
+use PDOException;
 
 class ProjetManager extends ManagerPrincipal
 {
@@ -65,7 +69,11 @@ class ProjetManager extends ManagerPrincipal
             $requete->execute();
             $resultat = $requete->fetchObject('entite\Projet');
 
-        } catch (Exception $e) {
+            if(!$resultat) {
+                throw new ProjetInvalide("Ce projet n'existe pas.");
+            }
+
+        } catch (PDOException $e) {
 
             $resultat = $e;
 

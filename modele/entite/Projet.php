@@ -55,7 +55,7 @@ class Projet
     private $contexte;
 
     /**
-     * @var $liens string Tableau des liens associés au projet
+     * @var $liens mixed Tableau des liens associés au projet qui peut être null
      */
     private $liens;
 
@@ -227,7 +227,7 @@ class Projet
     /**
      * @return string
      */
-    public function getLiens(): string
+    public function getLiens(): mixed
     {
         return $this->liens;
     }
