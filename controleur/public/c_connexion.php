@@ -16,6 +16,7 @@ if(isset($_POST['identifiant']) && isset($_POST['motDePasse']) && !empty($_POST[
         $utilisateur = $utilisateurManager->connexion($identifiant, $motDePasse);
         $utilisateurManager->updateDerniereConnexion($utilisateur->getId());
 
+        session_start();
         $_SESSION['utilisateur'] = $utilisateur;
 
         // Redirection
