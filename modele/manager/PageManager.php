@@ -121,6 +121,35 @@ class PageManager extends ManagerPrincipal
 
     }
 
+    /**
+     * Récupération des clés de toutes les pages
+     * @return array|Exception
+     */
+    public function getCles() {
+
+        try {
+
+            $pdo = $this->getPDO();
+            $sql = "select cle from page;";
+            $requete = $pdo->prepare($sql);
+            $requete->execute();
+            $resultat = $requete->fetchAll(PDO::FETCH_ASSOC);
+
+        } catch (Exception $e) {
+
+            $resultat = $e;
+
+        }
+
+        return $resultat;
+
+    }
+
+    /**
+     * Récupération d'une page selon sa clé
+     * @param string $cle
+     * @return Page|Exception
+     */
     public function getPageByCle(string $cle) {
 
         try {

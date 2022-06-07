@@ -1,19 +1,29 @@
 <?php
-function controleurPrincipal(string $action){
+require_once './modele/manager/PageManager.php';
 
-    $lesActions = array();
+use manager\PageManager;
 
-    // Liste des chemins
-    $lesActions['accueil'] = "public/c_page.php";
+function controleurPrincipal(string $page){
 
+    $pageManager = new PageManager();
+
+    $lesCles = $pageManager->getCles();
+
+    $lesPages = array();
+
+    foreach ($lesCles as $uneCle) {
+
+        $lesPages[$uneCle['cle']] =  "public/c_page.php";
+
+    }
 
     // Vérification de l'existence de la clé saisie
-    if (array_key_exists($action , $lesActions )){
-        $cle = key($lesActions);
-        $chemin = $lesActions[$action];
+    if (array_key_exists($page , $lesPages )){
+        $cle = $page;
+        $chemin = $lesPages[$page];
     } else {
         $cle = 'accueil';
-        $chemin = $lesActions['accueil'];
+        $chemin = $lesPages['accueil'];
     }
 
     return ['cle' => $cle, 'chemin' => $chemin];
