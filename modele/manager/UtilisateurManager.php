@@ -2,7 +2,10 @@
 
 namespace manager;
 
+require_once './modele/exception/UtilisateurInvalide.php';
+
 use entite\Utilisateur;
+use exception\UtilisateurInvalide;
 use modele\manager\ManagerPrincipal;
 use mysql_xdevapi\Exception;
 use PDO;
@@ -112,6 +115,64 @@ class UtilisateurManager extends ManagerPrincipal
             $sql = "delete from utilisateur where id = :id limit 1;";
             $requete = $pdo->prepare($sql);
             $requete->bindValue(':id', $id, PDO::PARAM_INT);
+            $resultat = $requete->execute();
+
+        } catch (Exception $e) {
+
+            $resultat = $e;
+
+        }
+
+        return $resultat;
+
+    }
+
+    /**
+     * Établie la connexion à l'application
+     * @param string $mel
+     * @param string $motDePasse
+     * @return Utilisateur|UtilisateurInvalide
+     * @throws \exception\UtilisateurInvalide
+     */
+    public function connexion(string $mel, string $motDePasse) {
+
+        try {
+
+            $pdo = $this->getPDO();
+            $sql = "select * from utilisateur where mel = :mel;";
+            $requete = $pdo->prepare($sql);
+            $requete->bindValue(':mel', $mel, PDO::PARAM_STR);
+            $requete->execute();
+            $resultat = $requete->fetchObject('entite\Utilisateur');
+
+            // Vérification du mot de passe
+            if(!$resultat || !password_verify($motDePasse, $resultat->getMotDePasse())) {
+                throw new UtilisateurInvalide('Identifiant ou mot de passe incorrect.');
+            }
+
+        } catch (Exception $e) {
+
+            $resultat = $e;
+
+        }
+
+        return $resultat;
+
+    }
+
+    /**
+     * Mise à jour de la date de connexion
+     * @param int $idUtilisateur
+     * @return bool|Exception
+     */
+    public function updateDerniereConnexion(int $idUtilisateur) {
+
+        try {
+
+            $pdo = $this->getPDO();
+            $sql = "update utilisateur set dateConnexion = now() where id = :id;";
+            $requete = $pdo->prepare($sql);
+            $requete->bindValue(':id', $idUtilisateur, PDO::PARAM_INT);
             $resultat = $requete->execute();
 
         } catch (Exception $e) {

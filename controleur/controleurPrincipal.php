@@ -19,6 +19,7 @@ function controleurPrincipal(string $page){
 
     $lesPages['projets'] =  "public/c_projets.php";
     $lesPages['projet'] =  "public/c_projet.php";
+    $lesPages['connexion'] =  "public/c_connexion.php";
 
     // Vérification de l'existence de la clé saisie
     if (array_key_exists($page , $lesPages )){
