@@ -135,4 +135,28 @@ class ProjetManager extends ManagerPrincipal
 
     }
 
+    /**
+     * Récupération des descriptions des projets
+     * @return array|Exception
+     */
+    public function getDescriptionsProjets() {
+
+        try {
+
+            $pdo = $this->getPDO();
+            $sql = "select id, logo, titre, lieu, organisation, annee from projet;";
+            $requete = $pdo->prepare($sql);
+            $requete->execute();
+            $resultat = $requete->fetchAll(PDO::FETCH_ASSOC);
+
+        } catch (Exception $e) {
+
+            $resultat = $e;
+
+        }
+
+        return $resultat;
+
+    }
+
 }
