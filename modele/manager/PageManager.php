@@ -24,12 +24,13 @@ class PageManager extends ManagerPrincipal
         try {
 
             $pdo = $this->getPDO();
-            $sql = "insert into page(id_utilisateur, titre, contenu, cle) values(:utilisateur, :titre, :contenu, :cle);";
+            $sql = "insert into page(id_utilisateur, titre, contenu, cle, icone) values(:utilisateur, :titre, :contenu, :cle, :icone);";
             $requete = $pdo->prepare($sql);
             $requete->bindValue(':utilisateur', $page->getIdUtilisateur(), PDO::PARAM_INT);
             $requete->bindValue(':titre', $page->getTitre(), PDO::PARAM_STR);
             $requete->bindValue(':contenu', $page->getContenu(), PDO::PARAM_STR);
             $requete->bindValue(':cle', $page->getCle(), PDO::PARAM_STR);
+            $requete->bindValue(':icone', $page->getIcone(), PDO::PARAM_STR);
             $resultat = $requete->execute();
 
         } catch (Exception $e) {
@@ -78,11 +79,12 @@ class PageManager extends ManagerPrincipal
         try {
 
             $pdo = $this->getPDO();
-            $sql = "update page set titre = :titre, contenu = :contenu, cle = :cle where id = :id;";
+            $sql = "update page set titre = :titre, contenu = :contenu, cle = :cle, icone = :icone where id = :id;";
             $requete = $pdo->prepare($sql);
             $requete->bindValue(':titre', $page->getTitre(), PDO::PARAM_STR);
             $requete->bindValue(':contenu', $page->getContenu(), PDO::PARAM_STR);
             $requete->bindValue(':cle', $page->getCle(), PDO::PARAM_STR);
+            $requete->bindValue(':icone', $page->getIcone(), PDO::PARAM_STR);
             $requete->bindValue(':id', $page->getId(), PDO::PARAM_INT);
             $resultat = $requete->execute();
 
@@ -160,6 +162,30 @@ class PageManager extends ManagerPrincipal
             $requete->bindValue(':cle', $cle, PDO::PARAM_STR);
             $requete->execute();
             $resultat = $requete->fetchObject('entite\Page');
+
+        } catch (Exception $e) {
+
+            $resultat = $e;
+
+        }
+
+        return $resultat;
+
+    }
+
+    /**
+     * Récupération des données pour former les liens dans le menu
+     * @return array|Exception
+     */
+    public function getLiens() {
+
+        try {
+
+            $pdo = $this->getPDO();
+            $sql = "select icone, cle from page;";
+            $requete = $pdo->prepare($sql);
+            $requete->execute();
+            $resultat = $requete->fetchAll(PDO::FETCH_ASSOC);
 
         } catch (Exception $e) {
 

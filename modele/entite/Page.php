@@ -29,6 +29,11 @@ class Page
      */
     private $cle;
 
+    /**
+     * @var $icone string Icone de la page
+     */
+    private $icone;
+
     public function __construct()
     {
 
@@ -112,6 +117,22 @@ class Page
     public function setCle(string $cle): void
     {
         $this->cle = $cle;
+    }
+
+    /**
+     * @return string
+     */
+    public function getIcone(): string
+    {
+        return $this->icone;
+    }
+
+    /**
+     * @param string $icone
+     */
+    public function setIcone(string $icone): void
+    {
+        $this->icone = $icone;
     }
 
 }
