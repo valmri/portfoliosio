@@ -2,30 +2,21 @@
 require_once './modele/manager/ManagerPrincipal.php';
 require_once './controleur/controleurPrincipal.php';
 
-if(isset($_GET['page'])) {
-    $controller = filter_input(INPUT_GET, 'page', FILTER_SANITIZE_STRING);
+if(key($_GET) === 'page') {
+
+    $index = "page";
+
+} elseif (key($_GET) === 'admin') {
+
+    $index = "admin";
+
 } else {
-    $controller = "accueil";
+
+    $index = "page";
+
 }
 
-$direction = controleurPrincipal($controller);
+$direction = controleurPrincipal($index);
 
-// Configuration de l'entête
-$moi = array(
-    'nom' => 'Nom',
-    'prenom' => 'Prenom',
-    'status' => 'Étudiant en informatique'
-);
-
-// Chargement des vues principales
-require_once './vue/elements/head.php';
-require_once './vue/elements/header.php';
-
-// Chargement du menu de façon automatique
-require_once './controleur/elements/c_menu.php';
-
-// Chargement du contrôleur qui chargera la vue
-require_once './controleur/'.$direction['chemin'];
-
-// Chargement du pied de page
-require_once './vue/elements/footer.php';
+// Chargement du contrôleur
+require_once './vue/'.$direction;

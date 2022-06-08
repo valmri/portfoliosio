@@ -1,37 +1,18 @@
 <?php
-require_once './modele/manager/PageManager.php';
 
-use manager\PageManager;
+function controleurPrincipal(string $index){
 
-function controleurPrincipal(string $page){
-
-    $pageManager = new PageManager();
-
-    $lesCles = $pageManager->getCles();
-
-    $lesPages = array();
-
-    foreach ($lesCles as $uneCle) {
-
-        $lesPages[$uneCle['cle']] =  "public/c_page.php";
-
-    }
-
-    $lesPages['projets'] =  "public/c_projets.php";
-    $lesPages['projet'] =  "public/c_projet.php";
-    $lesPages['connexion'] =  "public/c_connexion.php";
-    $lesPages['dashboard'] =  "admin/c_dashboard.php";
+    $lesIndex['page'] =  "public/index.php";
+    $lesIndex['admin'] =  "admin/index.php";
 
     // Vérification de l'existence de la clé saisie
-    if (array_key_exists($page , $lesPages )){
-        $cle = $page;
-        $chemin = $lesPages[$page];
+    if (array_key_exists($index , $lesIndex )){
+        $chemin = $lesIndex[$index];
     } else {
-        $cle = 'accueil';
-        $chemin = $lesPages['accueil'];
+        $chemin = $lesIndex['page'];
     }
 
-    return ['cle' => $cle, 'chemin' => $chemin];
+    return $chemin;
 
 }
 
