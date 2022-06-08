@@ -29,7 +29,7 @@ if(isset($_POST['identifiant']) && isset($_POST['motDePasse']) && !empty($_POST[
 }
 
 if(isset($_SESSION['utilisateur'])) {
-    require_once  './vue/admin/v_dashboard.php';
+    require_once './vue/admin/v_dashboard.php';
 } else {
-    require_once  './vue/public/v_connexion.php';
+    require_once './vue/public/v_connexion.php';
 }
