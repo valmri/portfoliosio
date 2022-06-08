@@ -1,7 +1,11 @@
 <menu class="carte menu">
     <ul class="menuPrincipal">
         <li>
-            <a class="boutonMenu" href="?page=dashboard&action=gestionPages">
+            <a class="boutonMenu" href="?admin=dashboard">
+                <i class="las la-tachometer-alt"></i>
+                Dashboard
+            </a>
+            <a class="boutonMenu" href="?admin=pages">
                 <i class="las la-file-alt"></i>
                 Gestion pages
             </a>

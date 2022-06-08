@@ -17,6 +17,7 @@ require_once './vue/admin/elements/header.php';
 // Chargement du contrôleur qui chargera la vue
 if(isset($_SESSION['utilisateur'])) {
     require_once './vue/admin/elements/toolbar.php';
+    require_once './vue/admin/elements/menu.php';
     require_once './controleur/admin/'.$direction;
 } else {
     header('Location:?auth=connexion');

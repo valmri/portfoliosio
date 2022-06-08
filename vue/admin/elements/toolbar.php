@@ -1,7 +1,7 @@
 <div class="barreOutils">
 
     <div class="menuOutils">
-        <?php if(isset($_GET['admin']) && $_GET['admin'] === "dashboard"): ?>
+        <?php if(isset($_GET['admin'])): ?>
             <a class="boutonBarreAdmin" href="?page=accueil">
                 <i class="las la-home"></i>
                 Site

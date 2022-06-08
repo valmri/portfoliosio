@@ -197,4 +197,28 @@ class PageManager extends ManagerPrincipal
 
     }
 
+    /**
+     * Récupère les pages pour l'administration
+     * @return array|Exception
+     */
+    public function getPagesAdmin() {
+
+        try {
+
+            $pdo = $this->getPDO();
+            $sql = "select id, titre, cle from page;";
+            $requete = $pdo->prepare($sql);
+            $requete->execute();
+            $resultat = $requete->fetchAll(PDO::FETCH_ASSOC);
+
+        } catch (Exception $e) {
+
+            $resultat = $e;
+
+        }
+
+        return $resultat;
+
+    }
+
 }
