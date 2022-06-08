@@ -18,9 +18,12 @@ $moi = array(
 );
 
 // Chargement des vues principales
-require_once './vue/elements/head.php';
-require_once './vue/elements/header.php';
+require_once './vue/public/elements/head.php';
+require_once './vue/public/elements/header.php';
 
+if(isset($_SESSION['utilisateur'])) {
+    require_once './vue/admin/elements/toolbar.php';
+}
 // Chargement du menu de façon automatique
 require_once './controleur/elements/c_menu.php';
 
@@ -28,4 +31,4 @@ require_once './controleur/elements/c_menu.php';
 require_once './controleur/public/'.$direction['chemin'];
 
 // Chargement du pied de page
-require_once './vue/elements/footer.php';
+require_once './vue/public/elements/footer.php';

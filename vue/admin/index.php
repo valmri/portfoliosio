@@ -13,10 +13,15 @@ $direction = controleurAdmin($controleur);
 // Chargement des vues principales
 require_once './vue/admin/elements/head.php';
 require_once './vue/admin/elements/header.php';
-require_once './vue/admin/elements/menu.php';
 
 // Chargement du contrôleur qui chargera la vue
-require_once './controleur/admin/'.$direction;
+if(isset($_SESSION['utilisateur'])) {
+    require_once './vue/admin/elements/toolbar.php';
+    require_once './controleur/admin/'.$direction;
+} else {
+    header('Location:?auth=connexion');
+}
+
 
 // Chargement du pied de page
 require_once './vue/admin/elements/footer.php';

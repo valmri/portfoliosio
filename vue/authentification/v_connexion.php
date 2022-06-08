@@ -13,7 +13,7 @@
 
         <div class="carteAuthentification">
 
-            <form action="" method="post">
+            <form action="#" method="post">
 
                 <div class="inputFormulaire">
                     <label for="identifiant">

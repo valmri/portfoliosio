@@ -4,6 +4,7 @@ function controleurPrincipal(string $index){
 
     $lesIndex['page'] =  "public/index.php";
     $lesIndex['admin'] =  "admin/index.php";
+    $lesIndex['authentification'] =  "authentification/index.php";
 
     // Vérification de l'existence de la clé saisie
     if (array_key_exists($index , $lesIndex )){

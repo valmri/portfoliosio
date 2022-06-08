@@ -19,7 +19,6 @@ function controleurPublic(string $page){
 
     $lesPages['projets'] =  "c_projets.php";
     $lesPages['projet'] =  "c_projet.php";
-    $lesPages['connexion'] =  "c_connexion.php";
 
     // Vérification de l'existence de la clé saisie
     if (array_key_exists($page , $lesPages )){

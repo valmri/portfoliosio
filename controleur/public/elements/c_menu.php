@@ -22,4 +22,4 @@ foreach ($liens as $cle => $ligne) {
 
 array_multisort($listeLiens, SORT_ASC, $liens);
 
-require_once './vue/elements/menu.php';
+require_once './vue/public/elements/menu.php';
