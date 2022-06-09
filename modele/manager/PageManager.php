@@ -1,8 +1,8 @@
 <?php
 
 namespace manager;
-
 use entite\Page;
+use exception\PageInvalide;
 use modele\manager\ManagerPrincipal;
 use mysql_xdevapi\Exception;
 use PDO;
@@ -58,6 +58,10 @@ class PageManager extends ManagerPrincipal
             $requete->bindValue(':id', $id, PDO::PARAM_INT);
             $requete->execute();
             $resultat = $requete->fetchObject('entite\Page');
+
+            if(!$resultat) {
+                throw new PageInvalide('Page inexistante.');
+            }
 
         } catch (Exception $e) {
 

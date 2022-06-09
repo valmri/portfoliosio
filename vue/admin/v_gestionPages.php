@@ -15,21 +15,21 @@
             </thead>
             <tbody>
 
-            <?php foreach ($lesPages as $unepage):?>
+            <?php foreach ($lesPages as $page):?>
                 <tr>
-                    <td class="tableauGestion_contenu"><?php echo $unepage['id'] ?></td>
-                    <td class="tableauGestion_contenu"><?php echo $unepage['titre'] ?></td>
-                    <td class="tableauGestion_contenu"><?php echo $unepage['cle'] ?></td>
+                    <td class="tableauGestion_contenu"><?php echo $page['id'] ?></td>
+                    <td class="tableauGestion_contenu"><?php echo $page['titre'] ?></td>
+                    <td class="tableauGestion_contenu"><?php echo $page['cle'] ?></td>
                     <td class="tableauGestion_contenu listeBouton">
-                        <a class="boutonBarreAdmin" href="?admin=modifPage&id=<?php echo $unepage['id'] ?>">
+                        <a class="boutonBarreAdmin" href="?admin=editePage&id=<?php echo $page['id'] ?>">
                             <i class="las la-edit"></i>
                             Editer
                         </a>
 
-                        <a class="boutonBarreAdmin" onclick="requeteSupprContenu(<?php echo $unepage['id'] ?>,'page')">
+                        <button class="boutonBarreAdmin" onclick="suppression(<?php echo $page['id'] ?>,'page')">
                             <i class="las la-trash"></i>
                             Supprimer
-                        </a>
+                        </button>
 
                     </td>
                 </tr>
@@ -39,6 +39,6 @@
         </table>
     </div>
 </div>
-<script src="./node_modules/sweetalert2/dist/sweetalert2.all.min.js"></script>
-<script src="./assets/js/ajax/supprContenu.js"></script>
+<script src="./node_modules/sweetalert2/dist/sweetalert2.all.js"></script>
+<script src="./assets/js/ajax/admin/suppression.js"></script>
 

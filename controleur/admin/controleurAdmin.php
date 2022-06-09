@@ -7,6 +7,7 @@ function controleurAdmin(string $page){
 
     $lesPages['dashboard'] =  "c_dashboard.php";
     $lesPages['pages'] =  "c_gestionPages.php";
+    $lesPages['editePage'] =  "c_editePage.php";
 
     // Vérification de l'existence de la clé saisie
     if (array_key_exists($page , $lesPages )){
