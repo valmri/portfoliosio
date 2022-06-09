@@ -13,7 +13,7 @@
                 <i class="las la-plus"></i>
                 Ajout page
             </a>
-            <a class="boutonMenu" href="?page=dashboard&action=gestionProjets">
+            <a class="boutonMenu" href="?admin=projets">
                 <i class="las la-hard-hat"></i>
                 Gestion projets
             </a>

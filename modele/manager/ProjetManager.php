@@ -2,8 +2,6 @@
 
 namespace manager;
 
-require_once './modele/exception/ProjetInvalide.php';
-
 use entite\Projet;
 use exception\ProjetInvalide;
 use modele\manager\ManagerPrincipal;
@@ -153,6 +151,31 @@ class ProjetManager extends ManagerPrincipal
 
             $pdo = $this->getPDO();
             $sql = "select id, logo, titre, lieu, organisation, annee from projet;";
+            $requete = $pdo->prepare($sql);
+            $requete->execute();
+            $resultat = $requete->fetchAll(PDO::FETCH_ASSOC);
+
+        } catch (Exception $e) {
+
+            $resultat = $e;
+
+        }
+
+        return $resultat;
+
+    }
+
+    /**
+     * Récupération des projets pour la dashboard
+     * @return array|Exception
+     */
+    public function getProjetsAdmin()
+    {
+
+        try {
+
+            $pdo = $this->getPDO();
+            $sql = "select id, titre from projet;";
             $requete = $pdo->prepare($sql);
             $requete->execute();
             $resultat = $requete->fetchAll(PDO::FETCH_ASSOC);

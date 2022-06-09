@@ -1,7 +1,7 @@
 <?php
 require_once '../../../modele/manager/ManagerPrincipal.php';
 require_once '../../../modele/exception/PageInvalide.php';
-
+require_once '../../../modele/exception/ProjetInvalide.php';
 use manager\AcquisManager;
 use manager\PageManager;
 use manager\ProjetManager;
