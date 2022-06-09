@@ -9,7 +9,7 @@
                 <i class="las la-file-alt"></i>
                 Gestion pages
             </a>
-            <a class="boutonMenu" href="?page=dashboard&action=ajoutPages">
+            <a class="boutonMenu" href="?admin=ajoutPage">
                 <i class="las la-plus"></i>
                 Ajout page
             </a>
