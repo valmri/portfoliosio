@@ -61,7 +61,7 @@
                     <?php endif; ?>
 
                 </div>
-                <input type="button" class="btnInput" onclick="ajoutInputTechnos()" value="+"/>
+                <input type="button" class="btnInput" onclick="addInput()" value="+"/>
             </div>
 
             <div class="multiInput">
@@ -84,7 +84,7 @@
                     <?php endif; ?>
 
                 </div>
-                <input type="button" class="btnInput" onclick="ajoutInputTechnos()" value="+"/>
+                <input type="button" class="btnInput" onclick="addInput()" value="+"/>
             </div>
 
             <input class="bouton btnPost" type="submit">
@@ -92,9 +92,10 @@
 
     </div>
 </div>
-<script src="./assets/js/ajax/admin/upload.js"></script>
 <script src="./node_modules/sweetalert2/dist/sweetalert2.all.min.js"></script>
 <script src="./node_modules/ckeditor4/ckeditor.js"></script>
+<script src="./assets/js/ajax/admin/upload.js"></script>
+<script src="./assets/js/formulaire.js"></script>
 <script>
     CKEDITOR.replace( 'editor1' );
 </script>
