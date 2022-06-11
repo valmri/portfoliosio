@@ -19,7 +19,7 @@
                     <td class="tableauGestion_contenu"><?php echo $unProjet['id'] ?></td>
                     <td class="tableauGestion_contenu"><?php echo $unProjet['titre'] ?></td>
                     <td class="tableauGestion_contenu listeBouton">
-                        <a class="boutonBarreAdmin" href="?page=dashboard&action=modifProjet&id=<?php echo $unProjet['id'] ?>">
+                        <a class="boutonBarreAdmin" href="?admin=editeProjet&id=<?php echo $unProjet['id'] ?>">
                             <i class="las la-edit"></i>
                             Editer
                         </a>

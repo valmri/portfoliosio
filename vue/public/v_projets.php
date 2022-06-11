@@ -13,7 +13,7 @@
 
         <div class="carte">
         <div class="carteEntete carteImgProjet">
-            <img src="./assets/img/projets/<?php echo $leProjet['logo'] ?>.png"
+            <img src="./assets/img/projets/<?php echo $leProjet['logo'] ?>"
                  alt="<?php echo $leProjet['organisation'] ?>">
         </div>
         <div class="carteContent">

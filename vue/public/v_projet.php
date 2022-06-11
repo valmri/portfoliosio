@@ -48,7 +48,7 @@
                 <h2>Visualisation :</h2>
 
                 <figure class="imagePrevi">
-                    <img src="./assets/img/projets/<?php echo $leProjet->getImage() ?>.png" alt="<?php echo $leProjet->getImage() ?>">
+                    <img src="./assets/img/projets/<?php echo $leProjet->getImage() ?>" alt="<?php echo $leProjet->getImage() ?>">
                 </figure>
 
                 <hr>
