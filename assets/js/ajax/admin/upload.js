@@ -24,7 +24,7 @@ function getRequeteHttp() {
     return requeteHttp;
 }
 
-function upload(image) {
+function upload(image, type) {
 
     var requeteHTTP = getRequeteHttp();
 
@@ -47,6 +47,7 @@ function upload(image) {
                 let formData = new FormData();
 
                 formData.append('image', image.files[0], image.files[0].name);
+                formData.append('type', type);
 
                 // Préparation de la requête
                 requeteHTTP.open("POST", "./controleur/admin/php-xml/upload.php", true);
@@ -91,13 +92,19 @@ function uploadResultat(requeteHttp) {
             let donnees = requeteHttp.responseXML.childNodes.item('resultat');
 
             let nom = donnees.childNodes.item(0).childNodes.item(0).data;
-            let reponse = donnees.childNodes.item(1).childNodes.item(0).data;
+            let type = donnees.childNodes.item(1).childNodes.item(0).data;
+            let reponse = donnees.childNodes.item(2).childNodes.item(0).data;
 
             if(reponse === '1') {
 
                 // Récupération des champs invisible
-                let nomImage = document.getElementById('logoProjet');
-                nomImage.value = nom;
+                if(type === 'logo') {
+                    let nomImage = document.getElementById('logoProjet');
+                    nomImage.value = nom;
+                } else if(type === 'image') {
+                    let nomImage = document.getElementById('imageProjet');
+                    nomImage.value = nom;
+                }
 
                 Swal.fire({
                     icon: 'success',

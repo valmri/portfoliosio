@@ -30,6 +30,10 @@ if(isset($_GET['id']) && is_numeric($_GET['id'])) {
             $logo = filter_input(INPUT_POST, 'logoProjet', FILTER_SANITIZE_STRING);
         }
 
+        if(isset($_POST['imageProjet']) && !empty($_POST['imageProjet'])) {
+            $image = filter_input(INPUT_POST, 'imageProjet', FILTER_SANITIZE_STRING);
+        }
+
         $lieu = filter_input(INPUT_POST, 'lieuProjet', FILTER_SANITIZE_STRING);
         $organisation = filter_input(INPUT_POST, 'orgaProjet', FILTER_SANITIZE_STRING);
         $annee = filter_input(INPUT_POST, 'anneeProjet', FILTER_SANITIZE_STRING);
@@ -95,8 +99,12 @@ if(isset($_GET['id']) && is_numeric($_GET['id'])) {
             $projet->setLogo('null');
         }
 
+        if(isset($image)) {
+            $projet->setImage($image);
+        } else {
+            $projet->setImage('null');
+        }
 
-        $projet->setImage($_FILES['imageProjet']['name']);
         $projet->setLieu($lieu);
         $projet->setOrganisation($organisation);
         $projet->setAnnee($annee);

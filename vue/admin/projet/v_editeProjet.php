@@ -25,13 +25,13 @@
             <label for="logoProjet">Logo :</label>
             <input type="hidden" name="MAX_FILE_SIZE" value="1000000" />
             <input id="logoProjet" type="hidden" name="logoProjet">
-            <input type="file" accept="image/png, image/jpeg" onchange="upload(this)"></br>
+            <input type="file" accept="image/png, image/jpeg" onchange="upload(this, 'logo')"></br>
 
 
             <label for="logoProjet">Image :</label>
             <input type="hidden" name="MAX_FILE_SIZE" value="1000000" />
             <input id="imageProjet" type="hidden" name="imageProjet">
-            <input type="file" accept="image/png, image/jpeg" onchange="upload(this)"></br>
+            <input type="file" accept="image/png, image/jpeg" onchange="upload(this, 'image')"></br>
 
             <label for="lieuProjet">Lieu :</label>
             <input type="text" name="lieuProjet" value="<?php echo $projet->getLieu(); ?>"  required><br/>

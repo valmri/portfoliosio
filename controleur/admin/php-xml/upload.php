@@ -2,6 +2,15 @@
 require_once '../../../modele/manager/ManagerPrincipal.php';
 
 // Récupération des données
+
+if(isset($_POST['type'])) {
+    $typeImage = $_POST['type'];
+}
+
+if(isset($_POST['image'])) {
+    $typeImage = $_POST['image'];
+}
+
 $typeFichier = $_FILES['image']['type'];
 $erreurFichier = $_FILES['image']['error'];
 $tailleFichier = $_FILES['image']['size'];
@@ -26,7 +35,14 @@ if($typeFichier === "image/jpeg" || $typeFichier === "image/png") {
 }
 
 // Chemin d'upload
-$_FILES['image']['name'] = date('dmYYYHms');
+if($typeImage === 'logo') {
+    $_FILES['image']['name'] = 'L'.date('dmYYYHms');
+} elseif ($typeImage === 'image') {
+    $_FILES['image']['name'] = 'I'.date('dmYYYHms');
+} else {
+    $_FILES['image']['name'] = date('dmYYYHms');
+}
+
 $uploadImage = '../../../assets/img/projets/'.basename($_FILES['image']['name']);
 
 
@@ -53,6 +69,7 @@ if($uploadSucces) {
 
 
     echo '<name>'. basename($_FILES['image']['name']) .'</name>';
+    echo '<type>'. $typeImage .'</type>';
     echo '<reponse>'. $uploadSucces .'</reponse>';
 
 
