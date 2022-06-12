@@ -17,7 +17,7 @@
                 <i class="las la-hard-hat"></i>
                 Gestion projets
             </a>
-            <a class="boutonMenu" href="?page=dashboard&action=ajoutProjet">
+            <a class="boutonMenu" href="?admin=ajoutProjet">
                 <i class="las la-plus"></i>
                 Ajout projet
             </a>
