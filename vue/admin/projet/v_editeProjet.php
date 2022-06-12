@@ -48,7 +48,7 @@
             <div class="multiInput">
                 <label for="technoProjet">Technologies :</label>
 
-                <div id="boiteInputs">
+                <div id="inputsTechnos">
                     <?php
                     if(!empty($lesTechnologies)) :
                         foreach ($lesTechnologies as $technologie): ?>
@@ -61,13 +61,13 @@
                     <?php endif; ?>
 
                 </div>
-                <input type="button" class="btnInput" onclick="addInput()" value="+"/>
+                <input type="button" class="btnInput" onclick="addInput('inputsTechnos')" value="+"/>
             </div>
 
             <div class="multiInput">
                 <label for="technoProjet">Liens :</label>
 
-                <div id="boiteInputs">
+                <div id="inputsLiens">
                     <?php
                     if(!empty($lesLiens)) :
                         foreach ($lesLiens as $lien):
@@ -84,7 +84,7 @@
                     <?php endif; ?>
 
                 </div>
-                <input type="button" class="btnInput" onclick="addInput()" value="+"/>
+                <input type="button" class="btnInput" onclick="addInput('inputsLiens')" value="+"/>
             </div>
 
             <input class="bouton btnPost" type="submit">
