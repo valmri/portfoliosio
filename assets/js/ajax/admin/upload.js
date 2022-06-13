@@ -104,6 +104,9 @@ function uploadResultat(requeteHttp) {
                 } else if(type === 'image') {
                     let nomImage = document.getElementById('imageProjet');
                     nomImage.value = nom;
+                } else if(type === 'compte') {
+                    let nomImage = document.getElementById('photo');
+                    nomImage.value = nom;
                 }
 
                 Swal.fire({

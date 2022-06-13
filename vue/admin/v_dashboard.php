@@ -4,7 +4,7 @@
     </div>
     <div class="carteContent">
 
-        <p>Bienvenue à moi-même !</p>
+        <p>Bienvenue sur la dashboard <?= $_SESSION['utilisateur']->getPrenom() ?> !</p>
 
     </div>
 </div>

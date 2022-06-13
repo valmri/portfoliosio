@@ -37,14 +37,14 @@ if($typeFichier === "image/jpeg" || $typeFichier === "image/png") {
 // Chemin d'upload
 if($typeImage === 'logo') {
     $_FILES['image']['name'] = 'L'.date('dmYYYHms');
+    $uploadImage = '../../../assets/img/projets/'.basename($_FILES['image']['name']);
 } elseif ($typeImage === 'image') {
     $_FILES['image']['name'] = 'I'.date('dmYYYHms');
-} else {
-    $_FILES['image']['name'] = date('dmYYYHms');
+    $uploadImage = '../../../assets/img/projets/'.basename($_FILES['image']['name']);
+} elseif($typeImage == 'compte') {
+    $_FILES['image']['name'] = 'P'.date('dmYYYHms');
+    $uploadImage = '../../../assets/img/compte/'.basename($_FILES['image']['name']);
 }
-
-$uploadImage = '../../../assets/img/projets/'.basename($_FILES['image']['name']);
-
 
 // Téléversement
 if($uploadLogo) {

@@ -29,6 +29,10 @@
                 <i class="las la-plus"></i>
                 Ajout acquis
             </a>
+            <a class="boutonMenu" href="?admin=compte">
+                <i class="las la-user"></i>
+                Compte
+            </a>
         </li>
     </ul>
 </menu>

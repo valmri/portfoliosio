@@ -82,13 +82,12 @@ class UtilisateurManager extends ManagerPrincipal
         try {
 
             $pdo = $this->getPDO();
-            $sql = "update utilisateur set photo = :photo, mel = :mel, nom = :nom, prenom = :prenom, motDePasse = :motDePasse where id = :id;";
+            $sql = "update utilisateur set photo = :photo, mel = :mel, nom = :nom, prenom = :prenom where id = :id;";
             $requete = $pdo->prepare($sql);
             $requete->bindValue(':photo', $utilisateur->getPhoto(), PDO::PARAM_STR);
             $requete->bindValue(':mel', $utilisateur->getMel(), PDO::PARAM_STR);
             $requete->bindValue(':nom', $utilisateur->getNom(), PDO::PARAM_STR);
             $requete->bindValue(':prenom', $utilisateur->getPrenom(), PDO::PARAM_STR);
-            $requete->bindValue(':motDePasse', $utilisateur->getMotDePasse(), PDO::PARAM_STR);
             $requete->bindValue(':id', $utilisateur->getId(), PDO::PARAM_INT);
             $resultat = $requete->execute();
 
@@ -173,6 +172,34 @@ class UtilisateurManager extends ManagerPrincipal
             $sql = "update utilisateur set dateConnexion = now() where id = :id;";
             $requete = $pdo->prepare($sql);
             $requete->bindValue(':id', $idUtilisateur, PDO::PARAM_INT);
+            $resultat = $requete->execute();
+
+        } catch (Exception $e) {
+
+            $resultat = $e;
+
+        }
+
+        return $resultat;
+
+    }
+
+    /**
+     * Mise à jour du mot de passe d'un utilisateur
+     * @param int $id
+     * @param string $mdpHache
+     * @return bool|Exception
+     */
+    public function updateMdp(int $id, string $mdpHache)
+    {
+
+        try {
+
+            $pdo = $this->getPDO();
+            $sql = "update utilisateur set motDePasse = :mdp where id = :id;";
+            $requete = $pdo->prepare($sql);
+            $requete->bindValue(':mdp', $mdpHache, PDO::PARAM_STR);
+            $requete->bindValue(':id', $id, PDO::PARAM_INT);
             $resultat = $requete->execute();
 
         } catch (Exception $e) {
