@@ -15,6 +15,8 @@ function controleurAdmin(string $page){
     $lesPages['editeProjet'] =  "projet/c_editeProjet.php";
     $lesPages['ajoutProjet'] =  "projet/c_ajoutProjet.php";
 
+    $lesPages['acquis'] =  "acquis/c_gestionAcquis.php";
+
     // Vérification de l'existence de la clé saisie
     if (array_key_exists($page , $lesPages )){
         $chemin = $lesPages[$page];

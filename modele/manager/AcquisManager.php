@@ -120,4 +120,32 @@ class AcquisManager extends ManagerPrincipal
 
     }
 
+    /**
+     * @return bool|Exception
+     */
+    public function getAcquisAdmin()
+    {
+
+        try {
+
+            $pdo = $this->getPDO();
+            $sql = "select ac.id, p.titre as projet, a.intitule as activite, c.intitule as competence from acquis ac
+                    join projet p on p.id = ac.id_projet
+                    join competence c on c.id = ac.id_competence
+                    join activite a on a.id = c.id_activite 
+                    order by ac.id ";
+            $requete = $pdo->prepare($sql);
+            $requete->execute();
+            $resultat = $requete->fetchAll(PDO::FETCH_ASSOC);
+
+        } catch (Exception $e) {
+
+            $resultat = $e;
+
+        }
+
+        return $resultat;
+
+    }
+
 }

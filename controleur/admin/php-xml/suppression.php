@@ -7,12 +7,6 @@ use manager\PageManager;
 use manager\ProjetManager;
 
 // Initialisation base de données
-$listeContenu = array(
-    "page" => "page",
-    "projet" => "projet",
-    "competence" => "acquis",
-    "lien" => "lien"
-);
 $resultat = true;
 
 $id = (int)filter_input(INPUT_POST, 'id', FILTER_SANITIZE_NUMBER_INT);

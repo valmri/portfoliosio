@@ -21,21 +21,13 @@
                 <i class="las la-plus"></i>
                 Ajout projet
             </a>
-            <a class="boutonMenu" href="?page=dashboard&action=gestionCompetences">
+            <a class="boutonMenu" href="?admin=acquis">
                 <i class="las la-clipboard-check"></i>
-                Gestion compétences
+                Gestion acquis
             </a>
             <a class="boutonMenu" href="?page=dashboard&action=ajoutCompetence">
                 <i class="las la-plus"></i>
                 Ajout compétence
-            </a>
-            <a class="boutonMenu" href="?page=dashboard&action=gestionLiens">
-                <i class="las la-link"></i>
-                Gestion liens
-            </a>
-            <a class="boutonMenu" href="?page=dashboard&action=ajoutLien">
-                <i class="las la-plus"></i>
-                Ajout lien
             </a>
         </li>
     </ul>
