@@ -71,16 +71,16 @@
                     <?php
                     if(!empty($lesLiens)) :
                         foreach ($lesLiens as $lien):
-                        $compteur =+ 1;
+
                     ?>
-                            <input type="text" name="liensProjet[<?= $compteur ?>]['intitule']" id="premierInput" value="<?php echo $lien->intitule; ?>">
-                            <input type="text" name="liensProjet[<?= $compteur ?>]['url']" id="premierInput" value="<?php echo $lien->url; ?>"></br>
+                            <input type="text" name="liensProjet[]['intitule']" id="inputLiens" value="<?php echo $lien->intitule; ?>">
+                            <input type="text" name="liensProjet[]['url']" id="inputLiens" value="<?php echo $lien->url; ?>"></br>
                     <?php
                         endforeach;
                     else :
                     ?>
-                        <input type="text" name="liensProjet[0]['intitule']" id="premierInput">
-                        <input type="text" name="liensProjet[0]['url']" id="premierInput"></br>
+                        <input type="text" name="liensProjet[]['intitule']" id="inputLiens">
+                        <input type="text" name="liensProjet[]['url']" id="inputLiens"></br>
                     <?php endif; ?>
 
                 </div>

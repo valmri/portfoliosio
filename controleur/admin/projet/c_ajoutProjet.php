@@ -60,29 +60,41 @@ if (isset($_POST['titreProjet'])
     }
 
     if( isset($_POST['liensProjet']) && !empty($_POST['liensProjet']) ) {
+
         $liens = $_POST['liensProjet'];
 
-        // Nettoyage des liens
-        $liensNettoye = array();
         $tableauLiens = array();
+        $listeIntitule= array();
+        $listeUrl = array();
+
         foreach ($liens as $lien) {
 
-            if (!empty($lien)) {
+            if (!empty($lien["'url'"])) {
 
+                $listeUrl[] = filter_var($lien["'url'"], FILTER_SANITIZE_STRING);
 
-                $liensNettoye['url'] = filter_var($lien["'url'"], FILTER_SANITIZE_STRING);
+            } elseif (!empty($lien["'intitule'"])) {
 
-                $liensNettoye['intitule'] = filter_var($lien["'intitule'"], FILTER_SANITIZE_STRING);
-
-                $tableauLiens[] = $liensNettoye;
+                $listeIntitule[] = filter_var($lien["'intitule'"], FILTER_SANITIZE_STRING);
 
             }
 
         }
 
+        $compteur = (count($listeIntitule) + count($listeUrl)) / 2;
+
+        for($i = 0; $i < $compteur; $i++) {
+
+            $unLien = array(
+                'url' => $listeUrl[$i],
+                'intitule' => $listeIntitule[$i]
+            );
+
+            array_push($tableauLiens, $unLien);
+
+        }
+
     }
-
-
 
     // Mise à jour du projet
 

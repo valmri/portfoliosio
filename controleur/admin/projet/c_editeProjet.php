@@ -64,29 +64,41 @@ if(isset($_GET['id']) && is_numeric($_GET['id'])) {
         }
 
         if( isset($_POST['liensProjet']) && !empty($_POST['liensProjet']) ) {
+
             $liens = $_POST['liensProjet'];
 
-            // Nettoyage des liens
-            $liensNettoye = array();
             $tableauLiens = array();
+            $listeIntitule= array();
+            $listeUrl = array();
+
             foreach ($liens as $lien) {
 
-                if (!empty($lien)) {
+                if (!empty($lien["'url'"])) {
 
+                    $listeUrl[] = filter_var($lien["'url'"], FILTER_SANITIZE_STRING);
 
-                    $liensNettoye['url'] = filter_var($lien["'url'"], FILTER_SANITIZE_STRING);
+                } elseif (!empty($lien["'intitule'"])) {
 
-                    $liensNettoye['intitule'] = filter_var($lien["'intitule'"], FILTER_SANITIZE_STRING);
-
-                    $tableauLiens[] = $liensNettoye;
+                    $listeIntitule[] = filter_var($lien["'intitule'"], FILTER_SANITIZE_STRING);
 
                 }
 
             }
 
+            $compteur = (count($listeIntitule) + count($listeUrl)) / 2;
+
+            for($i = 0; $i < $compteur; $i++) {
+
+                $unLien = array(
+                    'url' => $listeUrl[$i],
+                    'intitule' => $listeIntitule[$i]
+                );
+
+                array_push($tableauLiens, $unLien);
+
+            }
+
         }
-
-
 
         // Mise à jour du projet
 
@@ -141,13 +153,9 @@ if(isset($_GET['id']) && is_numeric($_GET['id'])) {
 
     } elseif (
         !empty($_POST['titreProjet'])
-        || !empty($_POST['logoProjet'])
         || !empty($_POST['lieuProjet'])
         || !empty($_POST['orgaProjet'])
         || !empty($_POST['anneeProjet'])
-        || !empty($_POST['contexteProjet'])
-        || !empty($_POST['technoProjet'])
-        || !empty($_POST['liensProjet'])
     ) {
         $msgErreur = "Veuillez saisir tous les champs.";
     }
