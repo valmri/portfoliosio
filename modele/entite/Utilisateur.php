@@ -39,6 +39,11 @@ class Utilisateur
      */
     private $dateConnexion;
 
+    /**
+     * @var $biographie string Biographie de l'utilisateur
+     */
+    private $biographie;
+
     public function __construct()
     {
 
@@ -162,6 +167,22 @@ class Utilisateur
      */
     public function getIdentite() {
         return $this->prenom.' '.$this->nom;
+    }
+
+    /**
+     * @return string
+     */
+    public function getBiographie(): string
+    {
+        return $this->biographie;
+    }
+
+    /**
+     * @param string $biographie
+     */
+    public function setBiographie(string $biographie): void
+    {
+        $this->biographie = $biographie;
     }
 
 }

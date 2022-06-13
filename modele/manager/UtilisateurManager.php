@@ -27,12 +27,13 @@ class UtilisateurManager extends ManagerPrincipal
         try {
 
             $pdo = $this->getPDO();
-            $sql = "insert into utilisateur(photo, mel, nom, prenom, motDePasse, dateConnexion) values (:photo, :mel, :nom, :prenom, :motDePasse, now());";
+            $sql = "insert into utilisateur(photo, mel, nom, prenom, motDePasse, dateConnexion, biographie) values (:photo, :mel, :nom, :prenom, :motDePasse, now(), :bio);";
             $requete = $pdo->prepare($sql);
             $requete->bindValue(':photo', $utilisateur->getPhoto(), PDO::PARAM_STR);
             $requete->bindValue(':mel', $utilisateur->getMel(), PDO::PARAM_STR);
             $requete->bindValue(':nom', $utilisateur->getNom(), PDO::PARAM_STR);
             $requete->bindValue(':prenom', $utilisateur->getPrenom(), PDO::PARAM_STR);
+            $requete->bindValue(':bio', $utilisateur->getBiographie(), PDO::PARAM_STR);
             $requete->bindValue(':motDePasse', $utilisateur->getMotDePasse(), PDO::PARAM_STR);
             $resultat = $requete->execute();
 
@@ -82,12 +83,13 @@ class UtilisateurManager extends ManagerPrincipal
         try {
 
             $pdo = $this->getPDO();
-            $sql = "update utilisateur set photo = :photo, mel = :mel, nom = :nom, prenom = :prenom where id = :id;";
+            $sql = "update utilisateur set photo = :photo, mel = :mel, nom = :nom, prenom = :prenom, biographie = :bio where id = :id;";
             $requete = $pdo->prepare($sql);
             $requete->bindValue(':photo', $utilisateur->getPhoto(), PDO::PARAM_STR);
             $requete->bindValue(':mel', $utilisateur->getMel(), PDO::PARAM_STR);
             $requete->bindValue(':nom', $utilisateur->getNom(), PDO::PARAM_STR);
             $requete->bindValue(':prenom', $utilisateur->getPrenom(), PDO::PARAM_STR);
+            $requete->bindValue(':bio', $utilisateur->getBiographie(), PDO::PARAM_STR);
             $requete->bindValue(':id', $utilisateur->getId(), PDO::PARAM_INT);
             $resultat = $requete->execute();
 
@@ -201,6 +203,33 @@ class UtilisateurManager extends ManagerPrincipal
             $requete->bindValue(':mdp', $mdpHache, PDO::PARAM_STR);
             $requete->bindValue(':id', $id, PDO::PARAM_INT);
             $resultat = $requete->execute();
+
+        } catch (Exception $e) {
+
+            $resultat = $e;
+
+        }
+
+        return $resultat;
+
+    }
+
+    /**
+     * Récupération des informations pour "moi"
+     * @param int $id
+     * @return array|Exception
+     */
+    public function getMoi(int $id)
+    {
+
+        try {
+
+            $pdo = $this->getPDO();
+            $sql = "select prenom, nom, photo, biographie from utilisateur where id = :id;";
+            $requete = $pdo->prepare($sql);
+            $requete->bindValue(':id', $id, PDO::PARAM_INT);
+            $requete->execute();
+            $resultat = $requete->fetch(PDO::FETCH_ASSOC);
 
         } catch (Exception $e) {
 

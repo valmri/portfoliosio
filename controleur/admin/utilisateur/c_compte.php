@@ -13,13 +13,15 @@ if(
     isset($_POST['photo']) &&
     isset($_POST['nom']) &&
     isset($_POST['prenom']) &&
-    isset($_POST['mel'])
+    isset($_POST['mel']) &&
+    isset($_POST['biographie'])
 ) {
 
     $photo = $_POST['photo'];
     $nom = filter_input(INPUT_POST, 'nom', FILTER_SANITIZE_STRING);
     $prenom = filter_input(INPUT_POST, 'prenom', FILTER_SANITIZE_STRING);
     $mel = filter_input(INPUT_POST, 'mel', FILTER_SANITIZE_EMAIL);
+    $bio = filter_input(INPUT_POST, 'biographie', FILTER_SANITIZE_STRING);
 
     // Mise à jour des données en base de données
     $utilisateur = new Utilisateur();
@@ -28,6 +30,7 @@ if(
     $utilisateur->setNom($nom);
     $utilisateur->setPrenom($prenom);
     $utilisateur->setMel($mel);
+    $utilisateur->setBiographie($bio);
 
     $majSucces = $utilisateurManager->update($utilisateur);
 
@@ -35,6 +38,7 @@ if(
     $_SESSION['utilisateur']->setPhoto($photo);
     $_SESSION['utilisateur']->setNom($nom);
     $_SESSION['utilisateur']->setPrenom($prenom);
+    $_SESSION['utilisateur']->setBiographie($bio);
 
     if($majSucces) {
         $msgInfo = "Informations modifiées avec succès !";

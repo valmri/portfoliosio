@@ -40,6 +40,9 @@
             <label for="mel">Adresse-mél :</label>
             <input type="text" name="mel" value="<?= $_SESSION['utilisateur']->getMel() ?>"></br>
 
+            <label for="mel">Biographie :</label>
+            <textarea name="biographie" id="biographie" cols="30" rows="10"><?= $_SESSION['utilisateur']->getBiographie() ?></textarea></br>
+
             <button type="submit">Mettre à jour</button>
 
         </form>

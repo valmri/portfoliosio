@@ -27,6 +27,9 @@ if(isset($_SESSION['utilisateur'])) {
 // Chargement du menu de façon automatique
 require_once './controleur/elements/c_menu.php';
 
+// Chargement de "moi"
+require_once './controleur/public/elements/c_moi.php';
+
 // Chargement du contrôleur qui chargera la vue
 require_once './controleur/public/'.$direction['chemin'];
 
