@@ -1,3 +1,4 @@
+<main>
 <menu class="carte menu">
     <ul class="menuPrincipal">
         <li>
