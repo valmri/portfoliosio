@@ -8,6 +8,11 @@ menu {
     margin: 0;
 }
 
+main {
+    display: flex;
+    margin: 10px 100px;
+}
+
 /*
     Typographies
  */
@@ -18,4 +23,52 @@ h1,h2,h3,h4,p,a,li,textarea,label,input,button,table {
 
 h1,h2,h3,h4,label {
     font-weight: 600;
+}
+
+/*
+    Barre latérale
+*/
+
+.moi {
+    text-align: center;
+}
+
+/*
+    Contenu principal
+*/
+
+.contenuPrincipal {
+    display: block;
+    width: 100%;
+    margin-left: 50px;
+}
+
+.menuPrincipal {
+    margin: 0px;
+    padding: 0px;
+}
+
+.menuPrincipal > ul {
+    list-style: none;
+    padding: 0px;
+}
+
+.ensemble {
+    display: flex;
+}
+
+.carte {
+    width: 100%;
+}
+
+.carteImgProjet {
+    text-align: center;
+}
+
+.carteDesc {
+    width: 30%;
+}
+
+.carteCompetences {
+    width: 100%;
 }

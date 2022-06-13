@@ -19,16 +19,20 @@ $moi = array(
 
 // Chargement des vues principales
 require_once './vue/public/elements/head.php';
-require_once './vue/public/elements/header.php';
 
 if(isset($_SESSION['utilisateur'])) {
     require_once './vue/admin/elements/toolbar.php';
 }
-// Chargement du menu de façon automatique
-require_once './controleur/elements/c_menu.php';
+
+require_once './vue/public/elements/header.php';
 
 // Chargement de "moi"
-require_once './controleur/public/elements/c_moi.php';
+if($_GET['page'] !== 'projet') {
+    require_once './controleur/public/elements/c_moi.php';
+}
+
+// Chargement du menu de façon automatique
+require_once './controleur/elements/c_menu.php';
 
 // Chargement du contrôleur qui chargera la vue
 require_once './controleur/public/'.$direction['chemin'];

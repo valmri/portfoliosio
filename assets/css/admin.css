@@ -5,10 +5,11 @@
 .barreOutils {
     display: flex;
     justify-content: space-between;
+    position: fixed;
+    top: 0;
     width: 100%;
     background-color: #000;
     box-shadow: 1px 1px 5px #000;
-    margin-bottom: 10px;
 }
 
 .boutonBarreAdmin {
@@ -27,4 +28,8 @@
 .boutonBarreAdmin:hover {
     color: #fff;
     background-color: rgba(255, 255, 255, 0.46);
+}
+
+main {
+    padding-top: 50px;
 }

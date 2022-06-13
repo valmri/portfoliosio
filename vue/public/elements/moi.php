@@ -1,4 +1,4 @@
-<div class="boiteGauche">
+<aside class="moi">
     <div class="carte">
         <div class="carteEntete carteEnteteImage">
             <img src="./assets/img/compte/<?= $utilisateur['photo'] ?>" alt="<?= $utilisateur['prenom'] ?>" />
@@ -13,4 +13,4 @@
 
         </div>
     </div>
-</div>
+</aside>

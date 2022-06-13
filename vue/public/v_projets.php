@@ -8,14 +8,17 @@
     foreach ($lesProjets as $leProjet):
         ?>
         <?php if ($ligne === 1): ?>
-        <div class="carteConteneur">
+        <div class="ensemble">
     <?php endif; ?>
 
         <div class="carte">
+        <?php if(!empty($leProjet['logo'])) : ?>
         <div class="carteEntete carteImgProjet">
             <img src="./assets/img/projets/<?php echo $leProjet['logo'] ?>"
-                 alt="<?php echo $leProjet['organisation'] ?>">
+                 alt="<?php echo $leProjet['organisation'] ?>"
+                 width="50%">
         </div>
+        <?php endif; ?>
         <div class="carteContent">
             <h2><?php echo $leProjet['titre'] ?></h2>
 
@@ -37,7 +40,7 @@
 
         </div>
         <?php $ligne++; ?>
-        <?php if ($ligne === 4): ?>
+        <?php if ($ligne === 3): ?>
 
         </div>
     <?php $ligne = 1; ?>
@@ -50,4 +53,5 @@
     <?php endforeach; ?>
 
 
+</div>
 </div>

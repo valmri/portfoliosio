@@ -1,5 +1,6 @@
-<menu class="carte menu">
-    <ul class="menuPrincipal">
+<div class="contenuPrincipal">
+<menu class="menuPrincipal">
+    <ul>
         <li>
             <?php foreach ($liens as $lien): ?>
             <a class="boutonMenu" href="?page=<?= $lien['cle'] ?>">

@@ -1,9 +1,9 @@
-<div class="carte">
+<article class="carte">
     <div class="carteEntete carteTitre">
         <h1><?= $leProjet->getTitre() ?></h1>
     </div>
 
-    <div class="carteConteneur">
+    <div class="ensemble">
 
         <!-- Description -->
         <div class="carte carteDesc">
@@ -48,10 +48,10 @@
                 <h2>Visualisation :</h2>
 
                 <figure class="imagePrevi">
-                    <img src="./assets/img/projets/<?php echo $leProjet->getImage() ?>" alt="<?php echo $leProjet->getImage() ?>">
+                    <img src="./assets/img/projets/<?php echo $leProjet->getImage() ?>" alt="<?php echo $leProjet->getImage() ?>" width="100%">
                 </figure>
 
-                <hr>
+                <hr/>
 
                 <h2>Compétences :</h2>
 
@@ -61,7 +61,7 @@
                 foreach($tableauAcquis as $unAcqui):
 
                     ?>
-
+                <!--
                     <div id="entete<?php echo $idCompteur; ?>" class="espace" onclick="init('entete<?php echo $idCompteur; ?>', 'chevron<?php echo $idCompteur; ?>', 'body<?php echo $idCompteur; ?>')">
                         <div class="entete<?php echo $idCompteur; ?>">
                             <i class="fas fa-map-marker-alt"></i>
@@ -95,11 +95,38 @@
 
 
                     </div>
+                    -->
+
+                    <div>
+                        <div>
+                            <i class="fas fa-map-marker-alt"></i>
+                            <h3><?php echo $unAcqui['intitule_activite']; ?></h3>
+                        </div>
+                    </div>
 
 
-                    <?php
-                    $idCompteur++;
-                    ?>
+
+                    <div>
+
+
+                        <?php foreach ($unAcqui['intitule_competence'] as $uneCompetence) :?>
+
+                            <div>
+                                <div>
+                                    <h4><?php echo $uneCompetence['intitule_competence']; ?></h4>
+                                </div>
+                            </div>
+                            <div>
+
+                                <?php echo htmlspecialchars_decode($uneCompetence['acquis']); ?>
+
+                            </div>
+
+                        <?php endforeach; ?>
+
+
+                    </div>
+
                 <?php endforeach; ?>
 
             </div>
@@ -108,4 +135,5 @@
 
     </div>
 
+</article>
 </div>
