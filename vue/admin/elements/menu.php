@@ -25,7 +25,7 @@
                 <i class="las la-clipboard-check"></i>
                 Gestion acquis
             </a>
-            <a class="boutonMenu" href="?page=dashboard&action=ajoutCompetence">
+            <a class="boutonMenu" href="?admin=ajoutAcquis">
                 <i class="las la-plus"></i>
                 Ajout compétence
             </a>

@@ -143,4 +143,29 @@ class ActiviteManager extends ManagerPrincipal
 
     }
 
+    /**
+     * Récupère toutes les activités
+     * @return array|Exception
+     */
+    public function getActivitesListe()
+    {
+
+        try {
+
+            $pdo = $this->getPDO();
+            $sql = "select id, intitule from activite order by id;";
+            $requete = $pdo->prepare($sql);
+            $requete->execute();
+            $resultat = $requete->fetchAll(PDO::FETCH_ASSOC);
+
+        } catch (Exception $e) {
+
+            $resultat = $e;
+
+        }
+
+        return $resultat;
+
+    }
+
 }

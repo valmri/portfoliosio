@@ -190,4 +190,29 @@ class ProjetManager extends ManagerPrincipal
 
     }
 
+    /**
+     * Récupère tous les projets
+     * @return array|Exception
+     */
+    public function getProjetsListe()
+    {
+
+        try {
+
+            $pdo = $this->getPDO();
+            $sql = "select id, titre from projet order by id;";
+            $requete = $pdo->prepare($sql);
+            $requete->execute();
+            $resultat = $requete->fetchAll(PDO::FETCH_ASSOC);
+
+        } catch (Exception $e) {
+
+            $resultat = $e;
+
+        }
+
+        return $resultat;
+
+    }
+
 }

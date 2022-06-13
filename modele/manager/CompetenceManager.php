@@ -150,4 +150,30 @@ class CompetenceManager extends ManagerPrincipal
 
     }
 
+    /**
+     * Récupère toutes les compétences par activité
+     * @return array|Exception
+     */
+    public function getCompetencesListe(int $id)
+    {
+
+        try {
+
+            $pdo = $this->getPDO();
+            $sql = "select id, intitule from competence where id_activite = :id order by id;";
+            $requete = $pdo->prepare($sql);
+            $requete->bindValue(':id', $id, PDO::PARAM_INT);
+            $requete->execute();
+            $resultat = $requete->fetchAll(PDO::FETCH_ASSOC);
+
+        } catch (Exception $e) {
+
+            $resultat = $e;
+
+        }
+
+        return $resultat;
+
+    }
+
 }
