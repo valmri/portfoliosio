@@ -1,0 +1,21 @@
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600&display=swap');
+
+body {
+    margin: 0;
+}
+
+menu {
+    margin: 0;
+}
+
+/*
+    Typographies
+ */
+
+h1,h2,h3,h4,p,a,li,textarea,label,input,button,table {
+    font-family: 'Quicksand', sans-serif;
+}
+
+h1,h2,h3,h4,label {
+    font-weight: 600;
+}
