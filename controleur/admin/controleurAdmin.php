@@ -16,6 +16,7 @@ function controleurAdmin(string $page){
     $lesPages['ajoutProjet'] =  "projet/c_ajoutProjet.php";
 
     $lesPages['acquis'] =  "acquis/c_gestionAcquis.php";
+    $lesPages['editeAcquis'] =  "acquis/c_editeAcquis.php";
 
     // Vérification de l'existence de la clé saisie
     if (array_key_exists($page , $lesPages )){

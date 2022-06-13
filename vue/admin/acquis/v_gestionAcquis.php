@@ -23,7 +23,7 @@
                     <td class="tableauGestion_contenu"><?php echo $uneCompetence['activite'] ?></td>
                     <td class="tableauGestion_contenu"><?php echo $uneCompetence['competence'] ?></td>
                     <td class="tableauGestion_contenu listeBouton">
-                        <a class="boutonBarreAdmin" href="?page=dashboard&action=modifCompetence&id=<?php echo $uneCompetence['id'] ?>">
+                        <a class="boutonBarreAdmin" href="?admin=editeAcquis&id=<?php echo $uneCompetence['id'] ?>">
                             <i class="las la-edit"></i>
                             Editer
                         </a>

@@ -121,7 +121,8 @@ class AcquisManager extends ManagerPrincipal
     }
 
     /**
-     * @return bool|Exception
+     * Récupère les acquis pour dashboard
+     * @return array|Exception
      */
     public function getAcquisAdmin()
     {
@@ -137,6 +138,37 @@ class AcquisManager extends ManagerPrincipal
             $requete = $pdo->prepare($sql);
             $requete->execute();
             $resultat = $requete->fetchAll(PDO::FETCH_ASSOC);
+
+        } catch (Exception $e) {
+
+            $resultat = $e;
+
+        }
+
+        return $resultat;
+
+    }
+
+    /**
+     * Récupère les données d'un acquis
+     * @param int $id
+     * @return array|Exception
+     */
+    public function getAcquisEdit(int $id) {
+
+        try {
+
+            $pdo = $this->getPDO();
+            $sql = "select ac.id, p.id as id_projet, p.titre as projet, a.id as id_activite, a.intitule as activite, c.id as id_competence, c.intitule as competence, ac.description from acquis ac
+                    join projet p on p.id = ac.id_projet
+                    join competence c on c.id = ac.id_competence
+                    join activite a on a.id = c.id_activite
+                    where ac.id = :id
+                    order by ac.id;";
+            $requete = $pdo->prepare($sql);
+            $requete->bindValue(':id', $id, PDO::PARAM_INT);
+            $requete->execute();
+            $resultat = $requete->fetch(PDO::FETCH_ASSOC);
 
         } catch (Exception $e) {
 
