@@ -27,7 +27,7 @@
             </a>
             <a class="boutonMenu" href="?admin=ajoutAcquis">
                 <i class="las la-plus"></i>
-                Ajout compétence
+                Ajout acquis
             </a>
         </li>
     </ul>
