@@ -19,47 +19,59 @@
 
     <div class="carteContent">
 
-        <form action="#" method="post">
+        <form class="formEditer" action="#" method="post">
 
-            <label for="photo">Photo :</label>
-            
-            <?php if(!empty($_SESSION['utilisateur']->getPhoto())) : ?>
-                <img src="./assets/img/compte/<?= $_SESSION['utilisateur']->getPhoto() ?>" alt="<?= $_SESSION['utilisateur']->getPrenom() ?>">
-            <?php endif; ?>
+            <div class="editeur">
 
-            <input type="hidden" name="MAX_FILE_SIZE" value="1000000" />
-            <input id="photo" type="hidden" name="photo" value="<?= $_SESSION['utilisateur']->getPhoto() ?>">
-            <input type="file" accept="image/png, image/jpeg" onchange="upload(this, 'compte')"></br>
+                <label for="nom">Nom :</label><br/>
+                <input class="inputSpe" type="text" name="nom" value="<?= $_SESSION['utilisateur']->getNom() ?>"></br>
 
-            <label for="nom">Nom :</label>
-            <input type="text" name="nom" value="<?= $_SESSION['utilisateur']->getNom() ?>"></br>
+                <label for="prenom">Prenom :</label><br/>
+                <input class="inputSpe" type="text" name="prenom" value="<?= $_SESSION['utilisateur']->getPrenom() ?>"></br>
 
-            <label for="prenom">Prenom :</label>
-            <input type="text" name="prenom" value="<?= $_SESSION['utilisateur']->getPrenom() ?>"></br>
+                <label for="mel">Adresse-mél :</label><br/>
+                <input class="inputSpe" type="text" name="mel" value="<?= $_SESSION['utilisateur']->getMel() ?>"></br>
 
-            <label for="mel">Adresse-mél :</label>
-            <input type="text" name="mel" value="<?= $_SESSION['utilisateur']->getMel() ?>"></br>
+                <label for="mel">Biographie :</label><br/>
+                <textarea class="inputSpe" name="biographie" id="biographie" cols="30" rows="10"><?= $_SESSION['utilisateur']->getBiographie() ?></textarea></br>
 
-            <label for="mel">Biographie :</label>
-            <textarea name="biographie" id="biographie" cols="30" rows="10"><?= $_SESSION['utilisateur']->getBiographie() ?></textarea></br>
+            </div>
 
-            <button type="submit">Mettre à jour</button>
+            <div class="parametre">
+                <label for="photo">Photo :</label><br/>
+                <?php if(!empty($_SESSION['utilisateur']->getPhoto())) : ?>
+                    <img src="./assets/img/compte/<?= $_SESSION['utilisateur']->getPhoto() ?>" alt="<?= $_SESSION['utilisateur']->getPrenom() ?>">
+                <?php endif; ?>
+
+                <input type="hidden" name="MAX_FILE_SIZE" value="1000000" />
+                <input id="photo" type="hidden" name="photo" value="<?= $_SESSION['utilisateur']->getPhoto() ?>">
+                <input class="inputSpe" type="file" accept="image/png, image/jpeg" onchange="upload(this, 'compte')"></br>
+
+                <button class="btnAdmin btnPost" type="submit">
+                    <i class="las la-save"></i>
+                    Mettre à jour
+                </button>
+
+            </div>
 
         </form>
 
         <hr/>
 
         <form action="#" method="post">
-            <label for="motDePasse">Mot de passe actuel :</label>
-            <input type="password" name="motDePasseActuel" required></br>
+            <label for="motDePasse">Mot de passe actuel :</label></br>
+            <input class="inputSpe" type="password" name="motDePasseActuel" required></br>
 
-            <label for="motDePasse">Nouveau mot de passe :</label>
-            <input type="password" name="motDePasseNouveau" required></br>
+            <label for="motDePasse">Nouveau mot de passe :</label></br>
+            <input class="inputSpe" type="password" name="motDePasseNouveau" required></br>
 
-            <label for="motDePasse">Vérification nouveau mot de passe :</label>
-            <input type="password" name="motDePasseVerif" required></br>
+            <label for="motDePasse">Vérification nouveau mot de passe :</label></br>
+            <input class="inputSpe" type="password" name="motDePasseVerif" required></br>
 
-            <button type="submit">Mettre à jour</button>
+            <button class="btnAdmin btnPost" type="submit">
+                <i class="las la-save"></i>
+                Mettre à jour
+            </button>
 
         </form>
 
