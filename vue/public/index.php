@@ -27,7 +27,8 @@ if(isset($_SESSION['utilisateur'])) {
 require_once './vue/public/elements/header.php';
 
 // Chargement de "moi"
-if($_GET['page'] !== 'projet') {
+
+if(isset($_GET['page']) && $_GET['page'] !== 'projet' || empty($_GET) ) {
     require_once './controleur/public/elements/c_moi.php';
 }
 
