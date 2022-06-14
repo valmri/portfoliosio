@@ -1,3 +1,7 @@
+main {
+    margin-top: 40px !important;
+}
+
 /*
     Barre d'outils
 */
@@ -30,6 +34,110 @@
     background-color: rgba(255, 255, 255, 0.46);
 }
 
-main {
-    padding-top: 50px;
+/*
+    Contenu dashboard
+*/
+
+main.admin {
+    margin: 0px;
+    margin-top: 50px;
+}
+
+/*
+    Menu dashboard
+*/
+
+menu.carte {
+    background-color: #6A6A6A;
+    width: 20%;
+    padding-top: 4px;
+    padding-left: 0px;
+    min-height: 100vh;
+}
+
+.menuDashboard {
+    display: block;
+    list-style: none;
+    padding: 0px;
+}
+
+.boutonMenuDashboard {
+    display: flex;
+    align-items: center;
+    color: #fff;
+    font-weight: 600;
+    text-decoration: none;
+    padding: 15px 5px;
+}
+
+.boutonMenuDashboard:hover {
+    background-color: #484848;
+}
+
+/*
+    Contenu page
+*/
+
+.carteAdmin {
+    width: 100%;
+    margin: 0px 50px;
+    background-color: #fff;
+}
+
+.carteAdminEntete {
+    border-bottom: 1px solid #000;
+    margin-bottom: 20px;
+}
+
+/*
+    Tableaux
+*/
+
+.tableauGestion {
+    width: 100%;
+}
+
+.tableauGestion_titre {
+    text-align: left;
+    border-bottom: 1px solid #000;
+    padding-bottom: 5px;
+}
+
+/*
+    Boutons
+*/
+
+.listeBouton {
+    display: flex;
+}
+
+.btnAdmin {
+    display: flex;
+    border: 1px #6A6A6A solid;
+    align-items: center;
+    padding: 10px;
+    justify-content: center;
+    color: #000;
+    text-decoration: none;
+    margin: 5px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.btnEditer {
+    background-color: #70b0ef;
+    color: #fff;
+}
+
+.btnEditer:hover {
+    background-color: #328be3;
+}
+
+.btnSuppr {
+    background-color: #ef7070;
+    color: #fff;
+}
+
+.btnSuppr:hover {
+    background-color: #d02e2e;
 }

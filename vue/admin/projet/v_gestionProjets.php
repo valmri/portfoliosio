@@ -1,5 +1,5 @@
-<div class="carte">
-    <div class="carteEntete">
+<div class="carteAdmin">
+    <div class="carteAdminEntete">
         <h1>Gestion projets</h1>
     </div>
     <div class="carteContent">
@@ -9,7 +9,6 @@
 
             <th class="tableauGestion_titre">Id</th>
             <th class="tableauGestion_titre">Titre</th>
-            <th class="tableauGestion_titre">Gestion</th>
 
             </thead>
             <tbody>
@@ -19,12 +18,12 @@
                     <td class="tableauGestion_contenu"><?php echo $unProjet['id'] ?></td>
                     <td class="tableauGestion_contenu"><?php echo $unProjet['titre'] ?></td>
                     <td class="tableauGestion_contenu listeBouton">
-                        <a class="boutonBarreAdmin" href="?admin=editeProjet&id=<?php echo $unProjet['id'] ?>">
+                        <a class="btnAdmin btnEditer" href="?admin=editeProjet&id=<?php echo $unProjet['id'] ?>">
                             <i class="las la-edit"></i>
                             Editer
                         </a>
 
-                        <button class="boutonBarreAdmin" onclick="suppression(<?php echo $unProjet['id'] ?>,'projet')">
+                        <button class="btnAdmin btnSuppr" onclick="suppression(<?php echo $unProjet['id'] ?>,'projet')">
                             <i class="las la-trash"></i>
                             Supprimer
                         </button>

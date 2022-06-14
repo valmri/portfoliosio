@@ -1,5 +1,5 @@
-<div class="carte">
-    <div class="carteEntete">
+<div class="carteAdmin">
+    <div class="carteAdminEntete">
         <h1>Gestion des acquis</h1>
     </div>
     <div class="carteContent">
@@ -11,7 +11,6 @@
             <th class="tableauGestion_titre">Projet</th>
             <th class="tableauGestion_titre">Activite</th>
             <th class="tableauGestion_titre">Compétence</th>
-            <th class="tableauGestion_titre">Gestion</th>
 
             </thead>
             <tbody>
@@ -23,12 +22,12 @@
                     <td class="tableauGestion_contenu"><?php echo $uneCompetence['activite'] ?></td>
                     <td class="tableauGestion_contenu"><?php echo $uneCompetence['competence'] ?></td>
                     <td class="tableauGestion_contenu listeBouton">
-                        <a class="boutonBarreAdmin" href="?admin=editeAcquis&id=<?php echo $uneCompetence['id'] ?>">
+                        <a class="btnAdmin btnEditer" href="?admin=editeAcquis&id=<?php echo $uneCompetence['id'] ?>">
                             <i class="las la-edit"></i>
                             Editer
                         </a>
 
-                        <button class="boutonBarreAdmin" onclick="suppression(<?php echo $uneCompetence['id'] ?>,'acquis')">
+                        <button class="btnAdmin btnSuppr" onclick="suppression(<?php echo $uneCompetence['id'] ?>,'acquis')">
                             <i class="las la-trash"></i>
                             Supprimer
                         </button>

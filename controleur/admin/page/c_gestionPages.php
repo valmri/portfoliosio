@@ -8,4 +8,4 @@ use manager\PageManager;
 $pageManager = new PageManager();
 $lesPages = $pageManager->getPagesAdmin();
 
-include_once "./vue/admin/v_gestionPages.php";
+include_once "./vue/admin/page/v_gestionPages.php";

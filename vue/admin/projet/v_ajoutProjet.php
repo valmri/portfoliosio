@@ -12,8 +12,8 @@
     </div>
 <?php endif; ?>
 
-<div class="carte">
-    <div class="carteEntete">
+<div class="carteAdmin">
+    <div class="carteAdminEntete">
         <h1>Ajout projet</h1>
     </div>
     <div class="carteContent">

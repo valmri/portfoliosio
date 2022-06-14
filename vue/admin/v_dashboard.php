@@ -1,5 +1,5 @@
-<div class="carte">
-    <div class="carteEntete">
+<div class="carteAdmin">
+    <div class="carteAdminEntete">
         <h1>Dashboard</h1>
     </div>
     <div class="carteContent">
