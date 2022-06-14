@@ -18,53 +18,74 @@
     </div>
     <div class="carteContent">
 
-        <form action="#" enctype="multipart/form-data" method="post">
-            <label for="titreProjet">Titre :</label>
-            <input type="text" name="titreProjet" required><br/>
+        <form class="formEditer" action="#" enctype="multipart/form-data" method="post">
 
-            <label for="logoProjet">Logo :</label>
-            <input type="hidden" name="MAX_FILE_SIZE" value="1000000" />
-            <input id="logoProjet" type="hidden" name="logoProjet">
-            <input type="file" accept="image/png, image/jpeg" onchange="upload(this, 'logo')"></br>
+            <div class="editeur">
+
+                <label for="titreProjet">Titre :</label><br/>
+                <input class="inputTitre" type="text" id="titreProjet" name="titreProjet" required><br/>
+
+                <label for="contexteProjet">Contexte :</label>
+                <textarea name="contexteProjet" id="editor1" rows="10" cols="80"></textarea><br/>
 
 
-            <label for="logoProjet">Image :</label>
-            <input type="hidden" name="MAX_FILE_SIZE" value="1000000" />
-            <input id="imageProjet" type="hidden" name="imageProjet">
-            <input type="file" accept="image/png, image/jpeg" onchange="upload(this, 'image')"></br>
+                <div class="groupeInput">
 
-            <label for="lieuProjet">Lieu :</label>
-            <input type="text" name="lieuProjet" required><br/>
+                    <div class="multiInput">
+                        <label for="technoProjet">Technologies :</label>
+                        <input type="button" class="btnInput" onclick="addInput('inputsTechnos')" value="+"/>
 
-            <label for="orgaProjet">Organisation :</label>
-            <input type="text" name="orgaProjet" required><br/>
+                        <div id="inputsTechnos">
 
-            <label for="anneeProjet">Année :</label>
-            <input type="text" name="anneeProjet" required><br/>
+                        </div>
 
-            <label for="contexteProjet">Contexte :</label>
-            <textarea name="contexteProjet" id="editor1" rows="10" cols="80"></textarea><br/>
+                    </div>
 
-            <div class="multiInput">
-                <label for="technoProjet">Technologies :</label>
-                <input type="button" class="btnInput" onclick="addInput('inputsTechnos')" value="+"/>
+                    <div class="multiInput">
+                        <label for="technoProjet">Liens :</label>
+                        <input type="button" class="btnInput" onclick="addInput('inputsLiens')" value="+"/>
 
-                <div id="inputsTechnos">
 
-                </div>
+                        <div id="inputsLiens">
 
-            </div>
+                        </div>
 
-            <div class="multiInput">
-                <label for="technoProjet">Liens :</label>
-                <input type="button" class="btnInput" onclick="addInput('inputsLiens')" value="+"/>
-                <div id="inputsLiens">
+                    </div>
 
                 </div>
 
             </div>
 
-            <input class="bouton btnPost" type="submit">
+
+            <div class="parametre">
+
+                <label for="logoProjet">Logo :</label>
+                <input type="hidden" name="MAX_FILE_SIZE" value="1000000" />
+                <input id="logoProjet" type="hidden" name="logoProjet">
+                <input type="file" accept="image/png, image/jpeg" onchange="upload(this, 'logo')"></br>
+
+
+                <label for="logoProjet">Image :</label>
+                <input type="hidden" name="MAX_FILE_SIZE" value="1000000" />
+                <input id="imageProjet" type="hidden" name="imageProjet">
+                <input type="file" accept="image/png, image/jpeg" onchange="upload(this, 'image')"></br>
+
+                <label for="lieuProjet">Lieu :</label>
+                <input type="text" name="lieuProjet" required><br/>
+
+                <label for="orgaProjet">Organisation :</label>
+                <input type="text" name="orgaProjet" required><br/>
+
+                <label for="anneeProjet">Année :</label>
+                <input type="text" name="anneeProjet" required><br/>
+
+                <button class="btnAdmin btnPost" type="submit">
+                    <i class="las la-save"></i>
+                    Publier
+                </button>
+
+            </div>
+
         </form>
 
     </div>
