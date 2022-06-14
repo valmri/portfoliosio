@@ -18,20 +18,33 @@
     </div>
     <div class="carteContent">
 
-        <form action="#" method="post">
-            <label for="titrePage">Titre :</label>
-            <input type="text" name="titrePage" required><br/>
+        <form class="formEditer" action="#" method="post">
 
-            <label for="iconePage">Icône :</label>
-            <input type="text" name="iconePage" required><br/>
+            <div class="editeur">
+                <label for="titrePage">Titre :</label>
+                <input class="inputTitre" type="text" id="titrePage" name="titrePage" placeholder="Titre de la page" required><br/>
 
-            <label for="contenuPage">Contenu :</label>
-            <textarea name="contenuPage" id="editor1" rows="10" cols="80"></textarea><br/>
+                <label for="editor1">Contenu :</label>
+                <textarea name="contenuPage" id="editor1" rows="10" cols="80"></textarea><br/>
+            </div>
 
-            <label for="clePage">Page :</label>
-            <input type="text" name="clePage" required><br/>
+            <div class="parametre">
+                <div class="parametreEntete">
+                    <h2>Paramètres</h2>
+                </div>
 
-            <input class="bouton btnPost" type="submit">
+                <label for="clePage">Page :</label><br/>
+                <input type="text" id="clePage" name="clePage" placeholder="accueil" required><br/>
+
+                <label for="iconePage">Icône :</label><br/>
+                <input type="text" id="iconePage" name="iconePage" placeholder="las la-home" required><br/>
+
+                <button class="btnAdmin btnPost" type="submit">
+                    <i class="las la-save"></i>
+                    Publier
+                </button>
+
+            </div>
         </form>
 
     </div>

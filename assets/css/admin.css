@@ -141,3 +141,71 @@ menu.carte {
 .btnSuppr:hover {
     background-color: #d02e2e;
 }
+
+.btnPost {
+    background-color: #4ba852;
+    color: #fff;
+}
+
+.btnPost:hover {
+    background-color: #358538;
+}
+
+/*
+    Formulaires
+*/
+
+.formEditer {
+    display: flex;
+    align-items: start;
+}
+
+.editeur {
+    width: 100%;
+    margin-right: 50px;
+}
+
+.parametre {
+    width: 40%;
+    padding: 5px 10px;
+    border: 1px solid #000;
+}
+
+.inputTitre {
+    font-size: 20px;
+    font-weight: 600;
+    padding: 10px;
+    width: 97%;
+    margin-bottom: 10px;
+}
+
+.parametreEntete {
+    border-bottom: 1px solid #000;
+    margin-bottom: 20px;
+}
+
+.parametreEntete > h2 {
+    margin: 10px 0px;
+    padding-bottom: 5px;
+}
+
+.parametre > input {
+    width: 95%;
+    margin-bottom: 10px;
+    padding: 5px;
+}
+
+.parametre > .btnPost {
+    margin-top: 10px;
+    width: 97%;
+}
+
+.groupeInput {
+    display: flex;
+    justify-content: space-between;
+}
+
+.inputSpe {
+    margin-bottom: 10px;
+    padding: 5px;
+}

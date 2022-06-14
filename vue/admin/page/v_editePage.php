@@ -14,24 +14,37 @@
 
 <div class="carteAdmin">
     <div class="carteAdminEntete">
-        <h1>Modif page</h1>
+        <h1>Éditeur de page</h1>
     </div>
     <div class="carteContent">
 
-        <form action="#" method="post">
-            <label for="titrePage">Titre :</label>
-            <input type="text" name="titrePage" value="<?php echo $page->getTitre()?>" required><br/>
+        <form class="formEditer" action="#" method="post">
 
-            <label for="iconePage">Icône :</label>
-            <input type="text" name="iconePage" value="<?php echo $page->getIcone()?>" required><br/>
+            <div class="editeur">
+                <label for="titrePage">Titre :</label>
+                <input class="inputTitre" type="text" id="titrePage" name="titrePage" value="<?php echo $page->getTitre()?>" placeholder="titre" required><br/>
 
-            <label for="contenuPage">Contenu :</label>
-            <textarea name="contenuPage" id="editor1" rows="10" cols="80"><?php echo $page->getContenu()?></textarea><br/>
+                <label for="editor1">Contenu :</label>
+                <textarea name="contenuPage" id="editor1" rows="10" cols="80"><?php echo $page->getContenu()?></textarea><br/>
+            </div>
 
-            <label for="clePage">Page :</label>
-            <input type="text" name="clePage" value="<?php echo $page->getCle()?>" required><br/>
+            <div class="parametre">
+                <div class="parametreEntete">
+                    <h2>Paramètres</h2>
+                </div>
 
-            <input class="bouton btnPost" type="submit">
+                <label for="clePage">Page :</label><br/>
+                <input type="text" id="clePage" name="clePage" value="<?php echo $page->getCle()?>" required><br/>
+
+                <label for="iconePage">Icône :</label><br/>
+                <input type="text" id="iconePage" name="iconePage" value="<?php echo $page->getIcone()?>" required><br/>
+
+                <button class="btnAdmin btnPost" type="submit">
+                    <i class="las la-save"></i>
+                    Publier
+                </button>
+
+            </div>
         </form>
 
     </div>

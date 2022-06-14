@@ -14,80 +14,102 @@
 
 <div class="carteAdmin">
     <div class="carteAdminEntete">
-        <h1>Modif projet</h1>
+        <h1>Éditeur de projet</h1>
     </div>
     <div class="carteContent">
 
-        <form action="#" enctype="multipart/form-data" method="post">
-            <label for="titreProjet">Titre :</label>
-            <input type="text" name="titreProjet" value="<?php echo $projet->getTitre(); ?>" required><br/>
+        <form class="formEditer" action="#" enctype="multipart/form-data" method="post">
 
-            <label for="logoProjet">Logo :</label>
-            <input type="hidden" name="MAX_FILE_SIZE" value="1000000" />
-            <input id="logoProjet" type="hidden" name="logoProjet">
-            <input type="file" accept="image/png, image/jpeg" onchange="upload(this, 'logo')"></br>
+            <div class="editeur">
+
+                <label for="titreProjet">Titre :</label><br/>
+                <input class="inputTitre" type="text" id="titreProjet" name="titreProjet" value="<?php echo $projet->getTitre(); ?>" required><br/>
+
+                <label for="contexteProjet">Contexte :</label>
+                <textarea name="contexteProjet" id="editor1" rows="10" cols="80"><?php echo $projet->getContexte(); ?></textarea><br/>
 
 
-            <label for="logoProjet">Image :</label>
-            <input type="hidden" name="MAX_FILE_SIZE" value="1000000" />
-            <input id="imageProjet" type="hidden" name="imageProjet">
-            <input type="file" accept="image/png, image/jpeg" onchange="upload(this, 'image')"></br>
+                <div class="groupeInput">
 
-            <label for="lieuProjet">Lieu :</label>
-            <input type="text" name="lieuProjet" value="<?php echo $projet->getLieu(); ?>"  required><br/>
+                    <div class="multiInput">
+                        <label for="technoProjet">Technologies :</label>
+                        <input type="button" class="btnInput" onclick="addInput('inputsTechnos')" value="+"/>
 
-            <label for="orgaProjet">Organisation :</label>
-            <input type="text" name="orgaProjet" value="<?php echo $projet->getOrganisation(); ?>" required><br/>
+                        <div id="inputsTechnos">
+                            <?php
+                            if(!empty($lesTechnologies)) :
+                                foreach ($lesTechnologies as $technologie): ?>
+                                    <input class="inputSpe" type="text" name="technoProjet[]" id="premierInput" value="<?php echo $technologie; ?>"></br>
+                                <?php
+                                endforeach;
+                            else :
+                                ?>
+                                <input class="inputSpe" type="text" name="technoProjet[]" id="premierInput">
+                            <?php endif; ?>
 
-            <label for="anneeProjet">Année :</label>
-            <input type="text" name="anneeProjet" value="<?php echo $projet->getAnnee(); ?>" required><br/>
+                        </div>
 
-            <label for="contexteProjet">Contexte :</label>
-            <textarea name="contexteProjet" id="editor1" rows="10" cols="80"><?php echo $projet->getContexte(); ?></textarea><br/>
+                    </div>
 
-            <div class="multiInput">
-                <label for="technoProjet">Technologies :</label>
+                    <div class="multiInput">
+                        <label for="technoProjet">Liens :</label>
+                        <input type="button" class="btnInput" onclick="addInput('inputsLiens')" value="+"/>
 
-                <div id="inputsTechnos">
-                    <?php
-                    if(!empty($lesTechnologies)) :
-                        foreach ($lesTechnologies as $technologie): ?>
-                            <input type="text" name="technoProjet[]" id="premierInput" value="<?php echo $technologie; ?>"></br>
-                        <?php
-                        endforeach;
-                    else :
-                        ?>
-                        <input type="text" name="technoProjet[]" id="premierInput">
-                    <?php endif; ?>
 
-                </div>
-                <input type="button" class="btnInput" onclick="addInput('inputsTechnos')" value="+"/>
-            </div>
+                        <div id="inputsLiens">
+                            <?php
+                            if(!empty($lesLiens)) :
+                                foreach ($lesLiens as $lien):
 
-            <div class="multiInput">
-                <label for="technoProjet">Liens :</label>
+                                    ?>
+                                    <input class="inputSpe" type="text" name="liensProjet[]['intitule']" id="inputLiens" placeholder="Intitulé de l'adresse url" value="<?php echo $lien->intitule; ?>">
+                                    <input class="inputSpe" type="text" name="liensProjet[]['url']" id="inputLiens" placeholder="Adresse url" value="<?php echo $lien->url; ?>"></br>
+                                <?php
+                                endforeach;
+                            else :
+                                ?>
+                                <input class="inputSpe" type="text" name="liensProjet[]['intitule']" id="inputLiens" placeholder="Intitulé de l'adresse url">
+                                <input class="inputSpe" type="text" name="liensProjet[]['url']" id="inputLiens" placeholder="Adresse url"></br>
+                            <?php endif; ?>
 
-                <div id="inputsLiens">
-                    <?php
-                    if(!empty($lesLiens)) :
-                        foreach ($lesLiens as $lien):
+                        </div>
 
-                    ?>
-                            <input type="text" name="liensProjet[]['intitule']" id="inputLiens" value="<?php echo $lien->intitule; ?>">
-                            <input type="text" name="liensProjet[]['url']" id="inputLiens" value="<?php echo $lien->url; ?>"></br>
-                    <?php
-                        endforeach;
-                    else :
-                    ?>
-                        <input type="text" name="liensProjet[]['intitule']" id="inputLiens">
-                        <input type="text" name="liensProjet[]['url']" id="inputLiens"></br>
-                    <?php endif; ?>
+                    </div>
 
                 </div>
-                <input type="button" class="btnInput" onclick="addInput('inputsLiens')" value="+"/>
+
             </div>
 
-            <input class="bouton btnPost" type="submit">
+
+            <div class="parametre">
+
+                <label for="logoProjet">Logo :</label>
+                <input type="hidden" name="MAX_FILE_SIZE" value="1000000" />
+                <input id="logoProjet" type="hidden" name="logoProjet" value="<?= $projet->getLogo() ?>">
+                <input type="file" accept="image/png, image/jpeg" onchange="upload(this, 'logo')"></br>
+
+
+                <label for="logoProjet">Image :</label>
+                <input type="hidden" name="MAX_FILE_SIZE" value="1000000" />
+                <input id="imageProjet" type="hidden" name="imageProjet" value="<?= $projet->getImage() ?>">
+                <input type="file" accept="image/png, image/jpeg" onchange="upload(this, 'image')"></br>
+
+                <label for="lieuProjet">Lieu :</label>
+                <input type="text" name="lieuProjet" value="<?php echo $projet->getLieu(); ?>"  required><br/>
+
+                <label for="orgaProjet">Organisation :</label>
+                <input type="text" name="orgaProjet" value="<?php echo $projet->getOrganisation(); ?>" required><br/>
+
+                <label for="anneeProjet">Année :</label>
+                <input type="text" name="anneeProjet" value="<?php echo $projet->getAnnee(); ?>" required><br/>
+
+                <button class="btnAdmin btnPost" type="submit">
+                    <i class="las la-save"></i>
+                    Publier
+                </button>
+
+            </div>
+
         </form>
 
     </div>
