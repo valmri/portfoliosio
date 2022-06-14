@@ -1,21 +1,21 @@
-<?php if(isset($msgErreur)):?>
-    <div class="boiteMessage msgErreur">
-        <i class="las la-exclamation-triangle"></i>
-        <p><?php echo $msgErreur; ?></p>
-    </div>
-<?php endif; ?>
-
-<?php if(isset($msgInfo)):?>
-    <div class="boiteMessage msgInfo">
-        <i class="las la-info-circle"></i>
-        <p><?php echo $msgInfo; ?></p>
-    </div>
-<?php endif; ?>
-
 <div class="carteAdmin">
     <div class="carteAdminEntete">
         <h1>Compte</h1>
     </div>
+
+    <?php if(isset($msgErreur)):?>
+        <div class="boiteMessage msgErreur">
+            <i class="las la-exclamation-triangle"></i>
+            <p><?php echo $msgErreur; ?></p>
+        </div>
+    <?php endif; ?>
+
+    <?php if(isset($msgInfo)):?>
+        <div class="boiteMessage msgInfo">
+            <i class="las la-info-circle"></i>
+            <p><?php echo $msgInfo; ?></p>
+        </div>
+    <?php endif; ?>
 
     <div class="carteContent">
 
