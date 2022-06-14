@@ -26,10 +26,12 @@
                             Editer
                         </a>
 
+                        <?php if($page['cle'] !== "accueil"):?>
                         <a class="btnAdmin btnSuppr" onclick="suppression(<?php echo $page['id'] ?>,'page')">
                             <i class="las la-trash"></i>
                             Supprimer
                         </a>
+                        <?php endif; ?>
 
                     </td>
                 </tr>

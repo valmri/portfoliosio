@@ -34,8 +34,12 @@
                     <h2>Paramètres</h2>
                 </div>
 
+                <?php if(!$page->getCle() === "accueil") :?>
                 <label for="clePage">Page :</label><br/>
                 <input type="text" id="clePage" name="clePage" value="<?php echo $page->getCle()?>" required><br/>
+                <?php else: ?>
+                    <input type="hidden" name="clePage" value="<?php echo $page->getCle()?>" required>
+                <?php endif; ?>
 
                 <label for="iconePage">Icône :</label><br/>
                 <input type="text" id="iconePage" name="iconePage" value="<?php echo $page->getIcone()?>" required><br/>
