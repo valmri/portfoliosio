@@ -38,6 +38,7 @@ if(
     $_SESSION['utilisateur']->setPhoto($photo);
     $_SESSION['utilisateur']->setNom($nom);
     $_SESSION['utilisateur']->setPrenom($prenom);
+    $_SESSION['utilisateur']->setMel($mel);
     $_SESSION['utilisateur']->setBiographie($bio);
 
     if($majSucces) {

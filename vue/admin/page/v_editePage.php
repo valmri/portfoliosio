@@ -54,7 +54,7 @@
 
     </div>
 </div>
-<script src="../../../node_modules/ckeditor4/ckeditor.js"></script>
+<script src="./node_modules/ckeditor4/ckeditor.js"></script>
 <script>
     CKEDITOR.replace( 'editor1' );
 </script>
