@@ -27,7 +27,7 @@ if(isset($_SESSION['utilisateur'])) {
 require_once './vue/public/elements/header.php';
 
 // Chargement du menu de façon automatique
-require_once './controleur/elements/c_menu.php';
+require_once './controleur/public/elements/c_menu.php';
 
 // Chargement de "moi"
 if(isset($_GET['page']) && $_GET['page'] !== 'projet' || empty($_GET) ) {
