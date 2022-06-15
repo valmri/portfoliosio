@@ -37,7 +37,7 @@ class ManagerPrincipal {
      * @param string $mdp
      * @param PDO $pdo
      */
-    public function __construct(string $serveur = 'localhost', string $bd = 'gffnasqq_sandbox_portfolio', string $identifiant = "gffnasqq_public", string $mdp = 'S4NEKtwGBtz2JFt')
+    public function __construct(string $serveur = 'localhost', string $bd = 'portfoliosio', string $identifiant = "", string $mdp = "")
     {
         $this->serveur = $serveur;
         $this->bd = $bd;
