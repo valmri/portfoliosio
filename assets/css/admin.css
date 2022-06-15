@@ -39,6 +39,7 @@ main {
 */
 
 main.admin {
+    display: flex;
     margin: 0px;
     margin-top: 50px;
 }
@@ -47,7 +48,7 @@ main.admin {
     Menu dashboard
 */
 
-menu.carte {
+.menuDashboard {
     background-color: #6A6A6A;
     width: 20%;
     padding-top: 4px;
@@ -209,8 +210,3 @@ menu.carte {
     margin-bottom: 10px;
     padding: 5px;
 }
-
-/*
-    Compte
-*/
-
