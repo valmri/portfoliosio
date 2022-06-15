@@ -1,106 +1,12 @@
-@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600&display=swap');
-
-body {
-    margin: 0;
+.bouton {
+    border: 1px #6A6A6A solid;
+    color: #000;
 }
 
-menu {
-    margin: 0;
-}
-
-main {
-    display: flex;
-    margin: 10px 100px;
-}
-
-i {
-    margin-right: 5px;
-    font-size: 20px;
-}
-
-/*
-    Typographies
- */
-
-h1,h2,h3,h4,p,a,li,textarea,label,input,button,table {
-    font-family: 'Quicksand', sans-serif;
-}
-
-h1,h2,h3,h4,label {
-    font-weight: 600;
-}
-
-button {
-    font-size: 16px;
-}
-
-/*
-    Barre latérale
-*/
-
-.moi {
-    text-align: center;
-}
-
-/*
-    Contenu principal
-*/
-
-.contenuPrincipal {
-    display: block;
-    width: 100%;
-    margin-left: 50px;
-}
-
-.menuPrincipal {
-    margin: 0px;
-    padding: 0px;
-}
-
-.menuPrincipal > ul {
-    list-style: none;
-    padding: 0px;
-}
-
-.ensemble {
-    display: flex;
-}
-
-.carte {
-    width: 100%;
-}
-
-.carteImgProjet {
-    text-align: center;
-}
-
-.carteDesc {
-    width: 30%;
-}
-
-.carteCompetences {
-    width: 100%;
-}
-
-/*
-    Bulles informatives
-*/
-
-.boiteMessage {
-    display: flex;
-    align-items: center;
-    padding: 10px;
-    width: 100%;
+.biographie,
+.page,
+.presentation {
     border: 1px solid #000;
-    margin-bottom: 20px;
-}
-
-.msgErreur {
-    background-color: #ef7070;
-    color: #fff;
-}
-
-.msgInfo {
-    background-color: #4ba852;
-    color: #fff;
+    border-radius: 5px;
+    padding: 20px;
 }

@@ -1,0 +1,146 @@
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600&display=swap');
+
+body {
+    margin: 0;
+}
+
+h1,h2,h3,h4,p,a,li,textarea,label,input,button,table {
+    font-family: 'Quicksand', sans-serif;
+}
+
+h1,h2,h3,h4,label {
+    font-weight: 600;
+}
+
+h1 {
+    font-size: 25px;
+}
+
+h2 {
+    font-size: 30px;
+}
+
+h3 {
+    font-size: 20px;
+}
+
+p,a {
+    font-size: 16px;
+}
+
+p {
+    text-align: justify;
+}
+
+i {
+    margin-right: 5px;
+    font-size: 20px;
+}
+
+.structureGlobale {
+    margin: 10px 100px;
+}
+
+.menuPrincipal > ul {
+    display: flex;
+    list-style: none;
+    padding: 0px;
+}
+
+.menuPrincipal > ul > li {
+    margin-right: 20px;
+}
+
+.contenuGlobal {
+    display: flex;
+    align-items: start;
+}
+
+.biographie {
+    width: 30%;
+    margin-right: 50px;
+}
+
+.biographieEntete > img {
+    width: 35%;
+}
+
+.biographieEntete,
+.biographieContenu > h1 {
+    text-align: center;
+}
+
+.page {
+    display: block;
+    width: 100%;
+}
+
+.ensemble {
+    display: flex;
+    justify-content: space-between;
+}
+
+.presentation {
+    width: 50%;
+    margin: 0px 10px;
+}
+
+.presentationEntete {
+    text-align: center;
+}
+
+.presentationEntete > img {
+    width: 35%;
+}
+
+.presentationContenu > ul {
+    padding: 0px;
+    list-style: none;
+}
+
+.bouton {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    justify-content: center;
+    text-decoration: none;
+    margin: 5px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.projetGauche {
+    width: 30%;
+    margin-right: 50px;
+}
+
+.projetDroite {
+    width: 100%;
+}
+
+.competenceContenu {
+    margin-bottom: 50px;
+}
+
+/*
+    Bulles informatives
+*/
+
+.boiteMessage {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    width: 100%;
+    border: 1px solid #000;
+    margin-bottom: 20px;
+}
+
+.msgErreur {
+    background-color: #ef7070;
+    color: #fff;
+}
+
+.msgInfo {
+    background-color: #4ba852;
+    color: #fff;
+}

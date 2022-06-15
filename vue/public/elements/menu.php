@@ -1,13 +1,14 @@
-<div class="contenuPrincipal">
-<menu class="menuPrincipal">
+<nav class="menuPrincipal">
     <ul>
+        <?php foreach ($liens as $lien): ?>
         <li>
-            <?php foreach ($liens as $lien): ?>
-            <a class="boutonMenu" href="?page=<?= $lien['cle'] ?>">
+            <a class="bouton" href="?page=<?= $lien['cle'] ?>">
                 <i class="<?= $lien['icone'] ?>"></i>
                 <?= ucwords($lien['cle']) ?>
             </a>
-            <?php endforeach; ?>
         </li>
+        <?php endforeach; ?>
     </ul>
-</menu>
+</nav>
+</header>
+<div class="contenuGlobal">

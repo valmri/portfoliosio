@@ -1,7 +1,6 @@
-<div class="carte">
-    <div class="carteEntete carteTitre">
-        <h1>Mes projets</h1>
-    </div>
+<div class="page">
+
+    <h2>Mes projets</h2>
 
     <?php
     $ligne = 1;
@@ -11,18 +10,21 @@
         <div class="ensemble">
     <?php endif; ?>
 
-        <div class="carte">
+        <div class="presentation">
         <?php if(!empty($leProjet['logo'])) : ?>
-        <div class="carteEntete carteImgProjet">
-            <img src="./assets/img/projets/<?php echo $leProjet['logo'] ?>"
-                 alt="<?php echo $leProjet['organisation'] ?>"
-                 width="50%">
-        </div>
-        <?php endif; ?>
-        <div class="carteContent">
-            <h2><?php echo $leProjet['titre'] ?></h2>
 
-            <ul class="listeDesciption">
+            <div class="presentationEntete">
+
+                <img src="./assets/img/projets/<?php echo $leProjet['logo'] ?>" alt="<?php echo $leProjet['organisation'] ?>" width="50%">
+
+            </div>
+
+        <?php endif; ?>
+        <div class="presentationContenu">
+
+            <h3><?php echo $leProjet['titre'] ?></h3>
+
+            <ul>
                 <li>
                     <i class="las la-map-pin"></i>
                     <?php echo $leProjet['lieu'] ?> - <?php echo $leProjet['organisation'] ?>
