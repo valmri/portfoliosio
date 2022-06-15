@@ -9,6 +9,8 @@ if(isset($_GET['auth'])) {
 
 $direction = controleurAuth($controleur);
 
-// Chargement du contrôleur qui chargera la vue
- require_once './controleur/authentification/'.$direction;
-
+// Chargement du contrôleur qui chargera la
+require_once './vue/admin/elements/head.php';
+require_once './vue/admin/elements/header.php';
+require_once './controleur/authentification/'.$direction;
+require_once './vue/admin/elements/footer.php';

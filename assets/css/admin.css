@@ -210,3 +210,45 @@ main.admin {
     margin-bottom: 10px;
     padding: 5px;
 }
+
+/*
+    Connexion
+*/
+
+.connexion {
+    margin: auto;
+    margin-top: 200px;
+    padding: 20px;
+    width: 20%;
+    border: 1px solid #000;
+    border-radius: 5px;
+}
+
+.connexionEntete {
+    border-bottom: 1px solid #000;
+}
+
+.connexionEntete > h2 {
+    margin: 0px;
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+
+.inputConnexion {
+    margin: 10px 0px;
+}
+
+.inputConnexion > input {
+    padding: 5px;
+    width: 80%;
+}
+
+.connexionContenu > form > button {
+    width: 100%;
+}
+
+.connexion > .boiteMessage {
+    padding: 5px;
+    width: 96%;
+    margin: 20px 0px;
+}
