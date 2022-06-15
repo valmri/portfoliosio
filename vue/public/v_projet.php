@@ -50,7 +50,7 @@
 
             <?php endif; ?>
 
-            <?php if(count($tableauAcquis) < 0): ?>
+            <?php if(count($tableauAcquis) > 0): ?>
             <hr/>
             <h3>Compétences :</h3>
 
