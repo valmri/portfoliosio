@@ -40,7 +40,7 @@
             <div class="parametre">
                 <label for="photo">Photo :</label><br/>
                 <?php if(!empty($_SESSION['utilisateur']->getPhoto())) : ?>
-                    <img src="./assets/img/compte/<?= $_SESSION['utilisateur']->getPhoto() ?>" alt="<?= $_SESSION['utilisateur']->getPrenom() ?>">
+                    <img src="./assets/img/compte/<?= $_SESSION['utilisateur']->getPhoto() ?>" alt="<?= $_SESSION['utilisateur']->getPrenom() ?>" width="35%">
                 <?php endif; ?>
 
                 <input type="hidden" name="MAX_FILE_SIZE" value="1000000" />
