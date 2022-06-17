@@ -24,7 +24,12 @@ function getRequeteHttp() {
     return requeteHttp;
 }
 
-var getCompetences = function(idProjet) {
+
+const activiteSelect = document.getElementById('activiteSelect')
+
+activiteSelect.addEventListener("click", () => { getCompetences(activiteSelect.value) })
+
+function getCompetences(idProjet){
     var requeteHTTP = getRequeteHttp();
 
     if (requeteHTTP == null) {
@@ -46,37 +51,36 @@ var getCompetences = function(idProjet) {
 
 function afficherGetCompetence(requeteHttp) {
 
-    if (requeteHttp.readyState == 4) {
-        if (requeteHttp.status == 200) {
+    if (requeteHttp.readyState == 4 && requeteHttp.status == 200) {
+        
+        // Récupération des clients dans le fichier XML
+        let donnees = requeteHttp.responseXML.childNodes.item('competence');
 
-            // Récupération des clients dans le fichier XML
-            let donnees = requeteHttp.responseXML.childNodes.item('competence');
+        // Création liste déroulante
+        var listeCompetence = document.getElementById('competenceSelect');
 
-            // Création liste déroulante
-            var listeCompetence = document.getElementById('competenceSelect');
-
-            // Suppression des options dans la liste
-            while (listeCompetence.firstChild) {
-                listeCompetence.removeChild(listeCompetence.firstChild);
-            }
-
-            // Ajout des options dans la liste
-            donnees.childNodes.forEach(competence => {
-
-                let ancienElement = null;
-                let idCompt = competence.childNodes.item(0).childNodes.item(0).data;
-                let nomCompt = competence.childNodes.item(1).childNodes.item(0).data;
-
-                let optionElement = document.createElement('option');
-                optionElement.value = idCompt;
-                optionElement.setAttribute('class','optionCompetence');
-                optionElement.innerText = nomCompt;
-
-                listeCompetence.insertBefore(optionElement, ancienElement);
-
-                ancienElement = optionElement;
-
-            });
+        // Suppression des options dans la liste
+        while (listeCompetence.firstChild) {
+            listeCompetence.removeChild(listeCompetence.firstChild);
         }
+
+        // Ajout des options dans la liste
+        donnees.childNodes.forEach(competence => {
+
+            let ancienElement = null;
+            let idCompt = competence.childNodes.item(0).childNodes.item(0).data;
+            let nomCompt = competence.childNodes.item(1).childNodes.item(0).data;
+
+            let optionElement = document.createElement('option');
+            optionElement.value = idCompt;
+            optionElement.setAttribute('class','optionCompetence');
+            optionElement.innerText = nomCompt;
+
+            listeCompetence.insertBefore(optionElement, ancienElement);
+
+            ancienElement = optionElement;
+
+        });
+        
     }
 }

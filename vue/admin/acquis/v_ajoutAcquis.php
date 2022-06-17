@@ -30,7 +30,7 @@
             <label for="activiteId">Activite :</label>
             <select class="inputSpe" name="activiteId" id="activiteSelect" required>
                 <?php foreach ($lesActivites as $uneActivite): ?>
-                    <option value="<?php echo $uneActivite['id']; ?>" onclick="getCompetences(this.value)"><?php echo $uneActivite['intitule']; ?></option>
+                    <option value="<?php echo $uneActivite['id']; ?>"><?php echo $uneActivite['intitule']; ?></option>
                 <?php endforeach; ?>
             </select><br/>
 
