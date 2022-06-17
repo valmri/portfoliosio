@@ -4,10 +4,6 @@ namespace entite;
 
 class Acquis
 {
-    /**
-     * @var $id int Identifiant de l'acquis
-     */
-    private $id;
 
     /**
      * @var $id_projet int Identifiant du projet
@@ -27,22 +23,6 @@ class Acquis
     public function __construct()
     {
 
-    }
-
-    /**
-     * @return int
-     */
-    public function getId(): int
-    {
-        return $this->id;
-    }
-
-    /**
-     * @param int $id
-     */
-    public function setId(int $id): void
-    {
-        $this->id = $id;
     }
 
     /**

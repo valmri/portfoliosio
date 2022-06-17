@@ -5,23 +5,20 @@ require_once './modele/entite/Acquis.php';
 use entite\Acquis;
 use manager\AcquisManager;
 
-if(isset($_GET['id']) && is_numeric($_GET['id'])) {
+if(isset($_GET['p']) && is_numeric($_GET['p']) && isset($_GET['c']) && is_numeric($_GET['c'])) {
 
     $acquisManager = new AcquisManager();
-    $idCompetence = filter_var((int)$_GET['id'], FILTER_SANITIZE_NUMBER_INT);
+    $idProjet = filter_var((int)$_GET['p'], FILTER_SANITIZE_NUMBER_INT);
+    $idCompetence = filter_var((int)$_GET['c'], FILTER_SANITIZE_NUMBER_INT);
 
-    if (isset($_POST['projetId']) && isset($_POST['competenceId']) && isset($_POST['contenu'])
-        && !empty($_POST['projetId']) && !empty($_POST['competenceId']) && !empty($_POST['contenu'])) {
+    if (isset($_POST['contenu']) && !empty($_POST['contenu'])) {
 
-        $projetId = filter_input(INPUT_POST, 'projetId', FILTER_SANITIZE_NUMBER_INT);
-        $competenceId = filter_input(INPUT_POST, 'competenceId', FILTER_SANITIZE_NUMBER_INT);
         $contenu = htmlspecialchars($_POST['contenu'], ENT_QUOTES);
 
         // Mise à jour des données
         $acquis = new Acquis();
-        $acquis->setId($idCompetence);
-        $acquis->setIdProjet($projetId);
-        $acquis->setIdCompetence($competenceId);
+        $acquis->setIdProjet($idProjet);
+        $acquis->setIdCompetence($idCompetence);
         $acquis->setDescription($contenu);
 
         $modifSucces = $acquisManager->update($acquis);
@@ -35,7 +32,7 @@ if(isset($_GET['id']) && is_numeric($_GET['id'])) {
     }
 
     // Récupération des données
-    $donneesCompetences = $acquisManager->getAcquisEdit($idCompetence);
+    $donneesCompetences = $acquisManager->getAcquisEdit($idProjet, $idCompetence);
 
     require_once "./vue/admin/acquis/v_editeAcquis.php";
 
