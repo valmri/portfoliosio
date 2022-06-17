@@ -36,7 +36,7 @@ class ManagerPrincipal {
         $this->serveur = "localhost";
 
         // Nom de la base de données
-        $this->bd = "";
+        $this->bd = "portfoliosio";
 
         // Identifiant de la base de données
         $this->identifiant = "";
