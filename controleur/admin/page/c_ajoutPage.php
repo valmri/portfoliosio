@@ -1,6 +1,7 @@
 <?php
 require_once './modele/manager/PageManager.php';
 require_once './modele/entite/Page.php';
+require_once './modele/exception/PageInvalide.php';
 
 use entite\Page;
 use manager\PageManager;

@@ -1,6 +1,7 @@
 <?php
 require_once './modele/manager/AcquisManager.php';
 require_once './modele/entite/Acquis.php';
+require_once './modele/exception/AcquisInvalide.php';
 
 use entite\Acquis;
 use manager\AcquisManager;
@@ -32,9 +33,18 @@ if(isset($_GET['p']) && is_numeric($_GET['p']) && isset($_GET['c']) && is_numeri
     }
 
     // Récupération des données
-    $donneesCompetences = $acquisManager->getAcquisEdit($idProjet, $idCompetence);
+    try {
 
-    require_once "./vue/admin/acquis/v_editeAcquis.php";
+        $donneesCompetences = $acquisManager->getAcquisEdit($idProjet, $idCompetence);
+        require_once "./vue/admin/acquis/v_editeAcquis.php";
+
+    } catch (Exception $e) {
+
+        $erreur = $e->getMessage();
+        require_once './vue/public/elements/erreur.php';
+
+    }
+
 
 } else {
     header('Location:?admin=pages');

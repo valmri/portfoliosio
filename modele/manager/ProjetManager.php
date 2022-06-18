@@ -1,7 +1,6 @@
 <?php
 
 namespace manager;
-
 use entite\Projet;
 use exception\ProjetInvalide;
 use modele\manager\ManagerPrincipal;

@@ -1,5 +1,4 @@
 <?php
-
 namespace manager;
 use entite\Page;
 use exception\PageInvalide;
@@ -60,7 +59,7 @@ class PageManager extends ManagerPrincipal
             $resultat = $requete->fetchObject('entite\Page');
 
             if(!$resultat) {
-                throw new PageInvalide('Page inexistante.');
+                throw new PageInvalide("Cette page n'existe pas.");
             }
 
         } catch (Exception $e) {

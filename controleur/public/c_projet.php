@@ -54,7 +54,7 @@ if(isset($_GET['id']) && is_numeric($_GET['id']) && !empty($_GET['id'])) {
 
     } catch (Exception $e) {
         $erreur = $e->getMessage();
-        require_once './vue/elements/erreur.php';
+        require_once './vue/public/elements/erreur.php';
     }
 
 } else {

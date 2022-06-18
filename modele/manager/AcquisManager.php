@@ -1,11 +1,12 @@
 <?php
 
 namespace manager;
-
 use entite\Acquis;
+use exception\AcquisInvalide;
 use modele\manager\ManagerPrincipal;
 use mysql_xdevapi\Exception;
 use PDO;
+use PDOException;
 
 class AcquisManager extends ManagerPrincipal
 {
@@ -18,6 +19,7 @@ class AcquisManager extends ManagerPrincipal
      * Enregistrement d'un acquis
      * @param Acquis $acquis
      * @return bool|Exception
+     * @throws \exception\AcquisInvalide
      */
     public function create(Acquis $acquis) {
 
@@ -30,6 +32,10 @@ class AcquisManager extends ManagerPrincipal
             $requete->bindValue(':id_competence', $acquis->getIdCompetence(), PDO::PARAM_INT);
             $requete->bindValue(':description', $acquis->getDescription(), PDO::PARAM_STR);
             $resultat = $requete->execute();
+
+            if(!$resultat) {
+                throw new AcquisInvalide('Acquis déjà existant.');
+            }
 
         } catch (Exception $e) {
 
@@ -173,6 +179,10 @@ class AcquisManager extends ManagerPrincipal
             $requete->bindValue(':idC', $idCompetence, PDO::PARAM_INT);
             $requete->execute();
             $resultat = $requete->fetch(PDO::FETCH_ASSOC);
+
+            if(!$resultat) {
+                throw new AcquisInvalide("Cet acquis n'existe pas.");
+            }
 
         } catch (Exception $e) {
 
