@@ -34,6 +34,16 @@ class Page
      */
     private $icone;
 
+    /**
+     * @var $dateCreation string Date de création de l'acquis
+     */
+    private $dateCreation;
+
+    /**
+     * @var $dateModification string Date de modification de l'acquis
+     */
+    private $dateModification;
+
     public function __construct()
     {
 
@@ -133,6 +143,38 @@ class Page
     public function setIcone(string $icone): void
     {
         $this->icone = $icone;
+    }
+
+    /**
+     * @return string
+     */
+    public function getDateCreation(): string
+    {
+        return $this->dateCreation;
+    }
+
+    /**
+     * @param string $dateCreation
+     */
+    public function setDateCreation(string $dateCreation): void
+    {
+        $this->dateCreation = $dateCreation;
+    }
+
+    /**
+     * @return string
+     */
+    public function getDateModification(): string
+    {
+        return $this->dateModification;
+    }
+
+    /**
+     * @param string $dateModification
+     */
+    public function setDateModification(string $dateModification): void
+    {
+        $this->dateModification = $dateModification;
     }
 
 }

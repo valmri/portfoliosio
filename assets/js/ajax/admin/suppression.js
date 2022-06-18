@@ -67,7 +67,50 @@ function suppression(id, type) {
         }
     })
 
+}
 
+function suppressionAcquis(id, idP, idC) {
+
+    Swal.fire({
+        title: 'Êtes-vous sûre de vouloir supprimer cet acquis ?',
+        icon: 'warning',
+        showCancelButton: true,
+        cancelButtonText: 'Annuler',
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Supprimer'
+    }).then((result) => {
+
+        if (result.isConfirmed) {
+
+            var requeteHTTP = getRequeteHttp();
+
+            if (requeteHTTP == null) {
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Impossible d\'utiliser la technologie Ajax sur ce navigateur.'
+                })
+
+            } else {
+                requeteHTTP.open("POST", "./controleur/admin/php-xml/suppressionAcquis.php");
+
+                requeteHTTP.onreadystatechange = function () {
+                    suppressionResultat(requeteHTTP);
+                };
+
+                requeteHTTP.setRequestHeader(
+                    "Content-Type",
+                    "application/x-www-form-urlencoded"
+                );
+                requeteHTTP.send("id="+encodeURI(id)+"&p="+encodeURI(idP)+"&c="+encodeURI(idC));
+            }
+
+            Swal.fire(
+                'Suppression effectuée avec succès !'
+            );
+
+        }
+    })
 
 }
 

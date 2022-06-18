@@ -24,7 +24,7 @@ class PageManager extends ManagerPrincipal
         try {
 
             $pdo = $this->getPDO();
-            $sql = "insert into page(id_utilisateur, titre, contenu, cle, icone) values(:utilisateur, :titre, :contenu, :cle, :icone);";
+            $sql = "insert into page(id_utilisateur, titre, contenu, cle, icone, dateCreation) values(:utilisateur, :titre, :contenu, :cle, :icone, now());";
             $requete = $pdo->prepare($sql);
             $requete->bindValue(':utilisateur', $page->getIdUtilisateur(), PDO::PARAM_INT);
             $requete->bindValue(':titre', $page->getTitre(), PDO::PARAM_STR);
@@ -83,7 +83,7 @@ class PageManager extends ManagerPrincipal
         try {
 
             $pdo = $this->getPDO();
-            $sql = "update page set titre = :titre, contenu = :contenu, cle = :cle, icone = :icone where id = :id;";
+            $sql = "update page set titre = :titre, contenu = :contenu, cle = :cle, icone = :icone, dateModification = now() where id = :id;";
             $requete = $pdo->prepare($sql);
             $requete->bindValue(':titre', $page->getTitre(), PDO::PARAM_STR);
             $requete->bindValue(':contenu', $page->getContenu(), PDO::PARAM_STR);
@@ -210,7 +210,7 @@ class PageManager extends ManagerPrincipal
         try {
 
             $pdo = $this->getPDO();
-            $sql = "select id, titre, cle from page;";
+            $sql = "select id, titre, cle, dateCreation, dateModification from page;";
             $requete = $pdo->prepare($sql);
             $requete->execute();
             $resultat = $requete->fetchAll(PDO::FETCH_ASSOC);

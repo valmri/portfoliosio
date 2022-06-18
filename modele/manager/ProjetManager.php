@@ -26,8 +26,8 @@ class ProjetManager extends ManagerPrincipal
         try {
 
             $pdo = $this->getPDO();
-            $sql = "insert into projet(id_utilisateur, titre, image, logo, lieu, organisation, annee, contexte, technologies, liens) 
-                    values(:utilisateur, :titre, :image, :logo, :lieu, :organisation, :annee, :contexte, :technologies, :liens);";
+            $sql = "insert into projet(id_utilisateur, titre, image, logo, lieu, organisation, annee, contexte, technologies, liens, dateCreation) 
+                    values(:utilisateur, :titre, :image, :logo, :lieu, :organisation, :annee, :contexte, :technologies, :liens, now());";
             $requete = $pdo->prepare($sql);
             $requete->bindValue(':utilisateur', $projet->getIdUtilisateur(), PDO::PARAM_INT);
             $requete->bindValue(':titre', $projet->getTitre(), PDO::PARAM_STR);
@@ -92,7 +92,7 @@ class ProjetManager extends ManagerPrincipal
 
             $pdo = $this->getPDO();
             $sql = "update projet set id_utilisateur = :utilisateur, titre = :titre, image = :image, logo = :logo, lieu = :lieu, 
-                    organisation = :organisation, annee = :annee, contexte = :contexte, technologies = :technologies, liens = :liens where id = :id;";
+                    organisation = :organisation, annee = :annee, contexte = :contexte, technologies = :technologies, liens = :liens, dateModification = now() where id = :id;";
             $requete = $pdo->prepare($sql);
             $requete->bindValue(':utilisateur', $projet->getIdUtilisateur(), PDO::PARAM_INT);
             $requete->bindValue(':titre', $projet->getTitre(), PDO::PARAM_STR);
@@ -175,7 +175,7 @@ class ProjetManager extends ManagerPrincipal
         try {
 
             $pdo = $this->getPDO();
-            $sql = "select id, titre from projet;";
+            $sql = "select id, titre, dateCreation, dateModification from projet;";
             $requete = $pdo->prepare($sql);
             $requete->execute();
             $resultat = $requete->fetchAll(PDO::FETCH_ASSOC);

@@ -30,23 +30,23 @@ class ManagerPrincipal {
      */
     private $pdo;
 
-    /**
-     * @param string $serveur
-     * @param string $bd
-     * @param string $identifiant
-     * @param string $mdp
-     * @param PDO $pdo
-     */
-    public function __construct(string $serveur = 'localhost', string $bd = 'portfoliosio', string $identifiant = "", string $mdp = "")
+    public function __construct()
     {
-        $this->serveur = $serveur;
-        $this->bd = $bd;
-        $this->identifiant = $identifiant;
-        $this->mdp = $mdp;
+        // Adresse du serveur de base de données
+        $this->serveur = "localhost";
+
+        // Nom de la base de données
+        $this->bd = "gffnasqq_sandbox_portfolio";
+
+        // Identifiant de la base de données
+        $this->identifiant = "gffnasqq_public";
+
+        // Mot de passe de la base de données
+        $this->mdp = "S4NEKtwGBtz2JFt";
     }
 
     /**
-     * Objet PDO
+     * Instanciation de PDO
      * @return PDO
      */
     protected function getPDO() {
