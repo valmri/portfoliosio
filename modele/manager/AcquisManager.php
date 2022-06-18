@@ -24,7 +24,7 @@ class AcquisManager extends ManagerPrincipal
         try {
 
             $pdo = $this->getPDO();
-            $sql = "insert into acquis(id_projet, id_competence, description) values(:id_projet, :id_competence, :description);";
+            $sql = "insert into acquis(id_projet, id_competence, description, dateCreation) values(:id_projet, :id_competence, :description, now());";
             $requete = $pdo->prepare($sql);
             $requete->bindValue(':id_projet', $acquis->getIdProjet(), PDO::PARAM_INT);
             $requete->bindValue(':id_competence', $acquis->getIdCompetence(), PDO::PARAM_INT);
@@ -79,7 +79,7 @@ class AcquisManager extends ManagerPrincipal
         try {
 
             $pdo = $this->getPDO();
-            $sql = "update acquis set description = :description where id_projet = :projet and id_competence = :competence;";
+            $sql = "update acquis set description = :description, dateModification = now() where id_projet = :projet and id_competence = :competence;";
             $requete = $pdo->prepare($sql);
             $requete->bindValue(':projet', $acquis->getIdProjet(), PDO::PARAM_INT);
             $requete->bindValue(':competence', $acquis->getIdCompetence(), PDO::PARAM_INT);
@@ -133,7 +133,7 @@ class AcquisManager extends ManagerPrincipal
         try {
 
             $pdo = $this->getPDO();
-            $sql = "select ac.id_projet, ac.id_competence, p.titre as projet, a.intitule as activite, c.intitule as competence from acquis ac
+            $sql = "select ac.id_projet, ac.id_competence, p.titre as projet, a.intitule as activite, c.intitule as competence, ac.dateCreation, ac.dateModification from acquis ac
                     join projet p on p.id = ac.id_projet
                     join competence c on c.id = ac.id_competence
                     join activite a on a.id = c.id_activite 

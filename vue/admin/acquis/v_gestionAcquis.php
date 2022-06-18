@@ -11,6 +11,8 @@
             <th class="tableauGestion_titre">Projet</th>
             <th class="tableauGestion_titre">Activite</th>
             <th class="tableauGestion_titre">Compétence</th>
+            <th class="tableauGestion_titre">Création</th>
+            <th class="tableauGestion_titre">Modification</th>
 
             </thead>
             <tbody>
@@ -24,6 +26,8 @@
                     <td class="tableauGestion_contenu"><?php echo $uneCompetence['projet'] ?></td>
                     <td class="tableauGestion_contenu"><?php echo $uneCompetence['activite'] ?></td>
                     <td class="tableauGestion_contenu"><?php echo $uneCompetence['competence'] ?></td>
+                    <td class="tableauGestion_contenu"><?= date("d/m/Y H:i", strtotime($uneCompetence['dateCreation'])) ?></td>
+                    <td class="tableauGestion_contenu"><?= ($uneCompetence['dateModification'] != null) ? date("d/m/Y H:i", strtotime($uneCompetence['dateModification'])) : "Jamais" ?></td>
                     <td class="tableauGestion_contenu listeBouton">
                         <a class="btnAdmin btnEditer" href="?admin=editeAcquis&p=<?php echo $uneCompetence['id_projet'] ?>&c=<?php echo $uneCompetence['id_competence'] ?>">
                             <i class="las la-edit"></i>
