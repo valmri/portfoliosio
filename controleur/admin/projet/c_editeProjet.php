@@ -1,6 +1,7 @@
 <?php
 require_once './modele/manager/ProjetManager.php';
 require_once './modele/entite/Projet.php';
+require_once './modele/exception/ProjetInvalide.php';
 
 use entite\Projet;
 use manager\ProjetManager;

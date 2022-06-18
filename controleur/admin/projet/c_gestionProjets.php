@@ -1,5 +1,6 @@
 <?php
 require_once './modele/manager/ProjetManager.php';
+require_once './modele/exception/ProjetInvalide.php';
 
 use manager\ProjetManager;
 

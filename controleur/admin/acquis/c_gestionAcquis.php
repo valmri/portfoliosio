@@ -1,5 +1,6 @@
 <?php
 require_once './modele/manager/AcquisManager.php';
+require_once './modele/exception/AcquisInvalide.php';
 
 use manager\AcquisManager;
 

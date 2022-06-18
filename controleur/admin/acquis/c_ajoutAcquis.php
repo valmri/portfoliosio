@@ -4,6 +4,7 @@ require_once './modele/manager/ActiviteManager.php';
 require_once './modele/manager/AcquisManager.php';
 require_once './modele/manager/CompetenceManager.php';
 require_once './modele/entite/Acquis.php';
+require_once './modele/exception/AcquisInvalide.php';
 
 use entite\Acquis;
 use manager\AcquisManager;
@@ -35,12 +36,20 @@ if (isset($_POST['projetId']) && isset($_POST['competenceId']) && isset($_POST['
     $acquis->setIdCompetence($competenceId);
     $acquis->setDescription($contenu);
 
-    $modifSucces = $acquisManager->create($acquis);
+    try {
 
-    if ($modifSucces) {
-        $msgInfo = "Competence ajouté avec succès !";
-    } else {
-        $msgErreur = "Erreur lors de l'ajout de la compétence.";
+        $modifSucces = $acquisManager->create($acquis);
+
+        if ($modifSucces) {
+            $msgInfo = "Competence ajouté avec succès !";
+        } else {
+            $msgErreur = "Erreur lors de l'ajout de la compétence.";
+        }
+
+    } catch (Exception $e) {
+
+        $msgErreur = $e->getMessage();
+
     }
 
 }

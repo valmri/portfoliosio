@@ -1,6 +1,5 @@
 <?php
 namespace manager;
-require_once './modele/exception/PageInvalide.php';
 use entite\Page;
 use exception\PageInvalide;
 use modele\manager\ManagerPrincipal;
