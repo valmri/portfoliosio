@@ -54,11 +54,15 @@ if(isset($_GET['id']) && is_numeric($_GET['id'])) {
 
     // Récupération des données de la bdd
     try {
+
         $page = $pageManager->read($idPage);
         require_once './vue/admin/page/v_editePage.php';
+
     } catch (Exception $e) {
+
         $erreur = $e->getMessage();
         require_once './vue/public/elements/erreur.php';
+
     }
 
 } else {

@@ -161,11 +161,19 @@ if(isset($_GET['id']) && is_numeric($_GET['id'])) {
     }
 
     // Récupération des données du projets
-    $projet = $projetManager->read($idProjet);
-    $lesTechnologies = json_decode($projet->getTechnologies());
-    $lesLiens = json_decode($projet->getLiens());
+    try {
 
-    require_once "./vue/admin/projet/v_editeProjet.php";
+        $projet = $projetManager->read($idProjet);
+        $lesTechnologies = json_decode($projet->getTechnologies());
+        $lesLiens = json_decode($projet->getLiens());
+        require_once "./vue/admin/projet/v_editeProjet.php";
+
+    } catch (Exception $e) {
+
+        $erreur = $e->getMessage();
+        require_once './vue/public/elements/erreur.php';
+
+    }
 
 } else {
     header('Location:?admin=projets');

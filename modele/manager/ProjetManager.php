@@ -1,7 +1,7 @@
 <?php
 
 namespace manager;
-
+require_once './modele/exception/ProjetInvalide.php';
 use entite\Projet;
 use exception\ProjetInvalide;
 use modele\manager\ManagerPrincipal;

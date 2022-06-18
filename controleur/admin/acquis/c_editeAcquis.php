@@ -32,9 +32,18 @@ if(isset($_GET['p']) && is_numeric($_GET['p']) && isset($_GET['c']) && is_numeri
     }
 
     // Récupération des données
-    $donneesCompetences = $acquisManager->getAcquisEdit($idProjet, $idCompetence);
+    try {
+        
+        $donneesCompetences = $acquisManager->getAcquisEdit($idProjet, $idCompetence);
+        require_once "./vue/admin/acquis/v_editeAcquis.php";
+        
+    } catch (Exception $e) {
+        
+        $erreur = $e->getMessage();
+        require_once './vue/public/elements/erreur.php';
+        
+    }
 
-    require_once "./vue/admin/acquis/v_editeAcquis.php";
 
 } else {
     header('Location:?admin=pages');

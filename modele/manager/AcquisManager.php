@@ -1,8 +1,9 @@
 <?php
 
 namespace manager;
-
+require_once './modele/exception/AcquisInvalide.php';
 use entite\Acquis;
+use exception\AcquisInvalide;
 use modele\manager\ManagerPrincipal;
 use mysql_xdevapi\Exception;
 use PDO;
@@ -173,6 +174,10 @@ class AcquisManager extends ManagerPrincipal
             $requete->bindValue(':idC', $idCompetence, PDO::PARAM_INT);
             $requete->execute();
             $resultat = $requete->fetch(PDO::FETCH_ASSOC);
+
+            if(!$resultat) {
+                throw new AcquisInvalide("Cet acquis n'existe pas.");
+            }
 
         } catch (Exception $e) {
 

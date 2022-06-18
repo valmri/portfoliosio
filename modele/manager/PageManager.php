@@ -1,6 +1,6 @@
 <?php
-
 namespace manager;
+require_once './modele/exception/PageInvalide.php';
 use entite\Page;
 use exception\PageInvalide;
 use modele\manager\ManagerPrincipal;
@@ -60,7 +60,7 @@ class PageManager extends ManagerPrincipal
             $resultat = $requete->fetchObject('entite\Page');
 
             if(!$resultat) {
-                throw new PageInvalide('Page inexistante.');
+                throw new PageInvalide("Cette page n'existe pas.");
             }
 
         } catch (Exception $e) {
