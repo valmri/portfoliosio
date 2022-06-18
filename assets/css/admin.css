@@ -1,12 +1,16 @@
-main {
-    margin-top: 40px !important;
+/*
+    Initialisation partie public
+ */
+
+.dimension {
+    margin: 55px 100px 0px;
 }
 
 /*
     Barre d'outils
 */
 
-.barreOutils {
+.toolbar {
     display: flex;
     justify-content: space-between;
     position: fixed;
@@ -16,7 +20,7 @@ main {
     box-shadow: 1px 1px 5px #000;
 }
 
-.boutonBarreAdmin {
+.toolbar_item {
     display: inline-flex;
     justify-content: center;
     font-weight: 600;
@@ -25,11 +29,11 @@ main {
     text-decoration: none;
 }
 
-.boutonBarreAdmin > i {
+.toolbar_item > i {
     margin-top: 3px;
 }
 
-.boutonBarreAdmin:hover {
+.toolbar_item:hover {
     color: #fff;
     background-color: rgba(255, 255, 255, 0.46);
 }

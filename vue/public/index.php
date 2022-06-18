@@ -10,19 +10,8 @@ if(isset($_GET['page'])) {
 
 $direction = controleurPublic($controller);
 
-// Configuration de l'entête
-$moi = array(
-    'nom' => 'Nom',
-    'prenom' => 'Prenom',
-    'status' => 'Étudiant en informatique'
-);
-
 // Chargement des vues principales
 require_once './vue/public/elements/head.php';
-
-if(isset($_SESSION['utilisateur'])) {
-    require_once './vue/admin/elements/toolbar.php';
-}
 
 require_once './vue/public/elements/header.php';
 

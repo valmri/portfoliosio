@@ -13,14 +13,14 @@
         <div class="presentation">
         <?php if(!empty($leProjet['logo'])) : ?>
 
-            <div class="presentationEntete">
+            <div class="presentation__entete">
 
                 <img src="./assets/img/projets/<?php echo $leProjet['logo'] ?>" alt="<?php echo $leProjet['organisation'] ?>" width="50%">
 
             </div>
 
         <?php endif; ?>
-        <div class="presentationContenu">
+        <div class="presentation__contenu">
 
             <h3><?php echo $leProjet['titre'] ?></h3>
 
