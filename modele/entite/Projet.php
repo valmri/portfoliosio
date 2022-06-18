@@ -59,6 +59,16 @@ class Projet
      */
     private $liens;
 
+    /**
+     * @var $dateCreation string Date de création du projet
+     */
+    private $dateCreation;
+
+    /**
+     * @var $dateModification string Date de modification du projet
+     */
+    private $dateModification;
+
     public function __construct()
     {
 
@@ -238,6 +248,38 @@ class Projet
     public function setLiens(string $liens): void
     {
         $this->liens = $liens;
+    }
+
+    /**
+     * @return string
+     */
+    public function getDateCreation(): string
+    {
+        return $this->dateCreation;
+    }
+
+    /**
+     * @param string $dateCreation
+     */
+    public function setDateCreation(string $dateCreation): void
+    {
+        $this->dateCreation = $dateCreation;
+    }
+
+    /**
+     * @return string
+     */
+    public function getDateModification(): string
+    {
+        return $this->dateModification;
+    }
+
+    /**
+     * @param string $dateModification
+     */
+    public function setDateModification(string $dateModification): void
+    {
+        $this->dateModification = $dateModification;
     }
 
 }
