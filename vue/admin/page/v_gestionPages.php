@@ -10,6 +10,8 @@
             <th class="tableauGestion_titre">Id</th>
             <th class="tableauGestion_titre">Nom</th>
             <th class="tableauGestion_titre">Page</th>
+            <th class="tableauGestion_titre">Création</th>
+            <th class="tableauGestion_titre">Modification</th>
 
 
             </thead>
@@ -20,6 +22,8 @@
                     <td class="tableauGestion_contenu"><?php echo $page['id'] ?></td>
                     <td class="tableauGestion_contenu"><?php echo $page['titre'] ?></td>
                     <td class="tableauGestion_contenu"><?php echo $page['cle'] ?></td>
+                    <td class="tableauGestion_contenu"><?= date("d/m/Y H:i", strtotime($page['dateCreation'])) ?></td>
+                    <td class="tableauGestion_contenu"><?= ($page['dateModification'] != null) ? date("d/m/Y H:i", strtotime($page['dateModification'])) : "Jamais" ?></td>
                     <td class="tableauGestion_contenu listeBouton">
                         <a class="btnAdmin btnEditer" href="?admin=editePage&id=<?php echo $page['id'] ?>">
                             <i class="las la-edit"></i>
