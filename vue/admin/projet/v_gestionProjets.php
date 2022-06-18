@@ -19,8 +19,8 @@
                 <tr>
                     <td class="tableauGestion_contenu"><?php echo $unProjet['id'] ?></td>
                     <td class="tableauGestion_contenu"><?php echo $unProjet['titre'] ?></td>
-                    <td class="tableauGestion_contenu"><?= date("d/m/Y H:i", strtotime($unProjet['dateCreation'])) ?></td>
-                    <td class="tableauGestion_contenu"><?= ($unProjet['dateModification'] != null) ? date("d/m/Y H:i", strtotime($unProjet['dateModification'])) : "Jamais" ?></td>
+                    <td class="tableauGestion_contenu"><?= ($unProjet['dateCreation'] != null) ? date("d/m/Y H:i", strtotime($unProjet['dateCreation'])) : "Date non définie" ?></td>
+                    <td class="tableauGestion_contenu"><?= ($unProjet['dateModification'] != null) ? date("d/m/Y H:i", strtotime($unProjet['dateModification'])) : "Date non définie" ?></td>
                     <td class="tableauGestion_contenu listeBouton">
                         <a class="btnAdmin btnEditer" href="?admin=editeProjet&id=<?php echo $unProjet['id'] ?>">
                             <i class="las la-edit"></i>

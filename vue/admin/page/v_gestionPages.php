@@ -22,8 +22,8 @@
                     <td class="tableauGestion_contenu"><?php echo $page['id'] ?></td>
                     <td class="tableauGestion_contenu"><?php echo $page['titre'] ?></td>
                     <td class="tableauGestion_contenu"><?php echo $page['cle'] ?></td>
-                    <td class="tableauGestion_contenu"><?= date("d/m/Y H:i", strtotime($page['dateCreation'])) ?></td>
-                    <td class="tableauGestion_contenu"><?= ($page['dateModification'] != null) ? date("d/m/Y H:i", strtotime($page['dateModification'])) : "Jamais" ?></td>
+                    <td class="tableauGestion_contenu"><?= ($page['dateCreation'] != null) ? date("d/m/Y H:i", strtotime($page['dateCreation'])) : "Date non définie" ?></td>
+                    <td class="tableauGestion_contenu"><?= ($page['dateModification'] != null) ? date("d/m/Y H:i", strtotime($page['dateModification'])) : "Date non définie" ?></td>
                     <td class="tableauGestion_contenu listeBouton">
                         <a class="btnAdmin btnEditer" href="?admin=editePage&id=<?php echo $page['id'] ?>">
                             <i class="las la-edit"></i>
