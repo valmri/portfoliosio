@@ -35,6 +35,11 @@
                 <label for="mel">Biographie :</label><br/>
                 <textarea class="inputSpe" name="biographie" id="biographie" cols="30" rows="10"><?= $_SESSION['utilisateur']->getBiographie() ?></textarea></br>
 
+                <button class="btnAdmin btnPost" type="submit">
+                    <i class="las la-save"></i>
+                    Mettre à jour
+                </button>
+
             </div>
 
             <div class="parametre">
@@ -46,11 +51,6 @@
                 <input type="hidden" name="MAX_FILE_SIZE" value="1000000" />
                 <input id="photo" type="hidden" name="photo" value="<?= $_SESSION['utilisateur']->getPhoto() ?>">
                 <input class="inputSpe" type="file" accept="image/png, image/jpeg" onchange="upload(this, 'compte')"></br>
-
-                <button class="btnAdmin btnPost" type="submit">
-                    <i class="las la-save"></i>
-                    Mettre à jour
-                </button>
 
             </div>
 
