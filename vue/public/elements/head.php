@@ -8,6 +8,7 @@
     <link rel="shortcut icon" href="./assets/img/favicon.png" type="image/x-icon">
     <link rel="stylesheet" href="./assets/css/initialisation.css" />
     <link rel="stylesheet" href="./assets/css/styles.css" />
+    <link rel="stylesheet" href="./assets/css/responsive.css" />
     <?php if(isset($_SESSION['utilisateur'])) : ?>
     <link rel="stylesheet" href="./assets/css/admin.css" />
     <?php endif; ?>

@@ -4,5 +4,6 @@
     <p>Par <a href="https://valmri.fr">Valentin M</a></p>
 </footer>
 </div>
+<script src="./assets/js/menu.js"></script>
 </body>
 </html>

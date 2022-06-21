@@ -43,13 +43,20 @@ i {
 
 .menu {
     display: flex;
-    list-style: none;
     padding: 0px;
 }
 
 .menu > .bouton {
     margin-left: 0px;
     margin-right: 10px;
+}
+
+.menu__web {
+    display: inherit;
+}
+
+.menu__resp {
+    display: none;
 }
 
 .contenu {
