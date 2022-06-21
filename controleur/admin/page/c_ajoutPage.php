@@ -25,6 +25,12 @@ if(
     $cle = strtolower(filter_input(INPUT_POST, 'clePage', FILTER_SANITIZE_STRING));
     $icone = filter_input(INPUT_POST, 'iconePage', FILTER_SANITIZE_STRING);
 
+    $iconeLAS = "las ".$icone;
+
+    if($icone !== $iconeLAS) {
+        $icone = $iconeLAS;
+    }
+
     $page = new Page();
     $page->setTitre($titre);
     $page->setIcone($icone);

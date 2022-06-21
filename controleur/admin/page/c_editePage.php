@@ -29,6 +29,12 @@ if(isset($_GET['id']) && is_numeric($_GET['id'])) {
         $cle = strtolower(filter_input(INPUT_POST, 'clePage', FILTER_SANITIZE_STRING));
         $icone = filter_input(INPUT_POST, 'iconePage', FILTER_SANITIZE_STRING);
 
+        $iconeLAS = "las ".$icone;
+
+        if($icone !== $iconeLAS) {
+            $icone = $iconeLAS;
+        }
+
         // Mise à jour des données
         $pageEdite = new Page();
         $pageEdite->setId($idPage);
