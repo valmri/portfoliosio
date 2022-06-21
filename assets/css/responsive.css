@@ -1,0 +1,69 @@
+@media (max-width: 1500px) {
+
+    h1,h2,h3,h4,p {
+        margin: 10px;
+    }
+
+    .dimension {
+        margin: 0px;
+    }
+
+    .menu__web {
+        display: none;
+    }
+
+    .menu__resp {
+        display: block;
+        width: 100%;
+        background-color: rgba(0, 0, 0, 0.71);
+    }
+
+    .menu__resp-header {
+        display: flex;
+        justify-content: right;
+    }
+
+    .menu__resp-bouton {
+        background-color: #ffffff;
+    }
+
+    .menu__resp-bouton > i {
+        margin: 0px;
+    }
+
+    .menu__resp-body {
+        display: none;
+    }
+
+    .menu__resp-body > .bouton {
+        color: #fff;
+        border-color: #fff;
+    }
+
+    .contenu {
+        display: block;
+        margin: 20px 0px;
+    }
+
+    .biographie,
+    .page {
+        width: 100%;
+        padding: 20px 0px;
+        margin: 20px 0px;
+    }
+
+    .ensemble {
+        display: block;
+    }
+
+    .presentation {
+        width: 100%;
+        margin: 20px 0px;
+        padding: 5px;
+    }
+
+    .projetGauche,
+    .projetDroite {
+        width: 100%;
+    }
+}

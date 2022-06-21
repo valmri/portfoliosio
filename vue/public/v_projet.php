@@ -46,7 +46,7 @@
             <?php if($leProjet->getImage() !== 'null'): ?>
             <h3>Visualisation :</h3>
 
-            <img src="./assets/img/projets/<?php echo $leProjet->getImage() ?>" alt="<?php echo $leProjet->getImage() ?>" width="100%">
+            <img src="./assets/img/projets/<?php echo $leProjet->getImage() ?>" alt="<?php echo $leProjet->getImage() ?>" width="50%">
 
             <?php endif; ?>
 
@@ -65,10 +65,7 @@
                     <h3><?php echo $unAcqui['intitule_activite']; ?></h3>
                 </div>
 
-
-
                 <div class="competenceContenu">
-
 
                     <?php foreach ($unAcqui['intitule_competence'] as $uneCompetence) :?>
 
@@ -81,16 +78,12 @@
 
                     <?php endforeach; ?>
 
-
                 </div>
 
             <?php endforeach; ?>
             <?php endif; ?>
         </div>
 
-
-
     </div>
 
 </article>
-</div>

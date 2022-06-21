@@ -37,36 +37,45 @@ i {
     font-size: 20px;
 }
 
-.structureGlobale {
+.dimension {
     margin: 10px 100px;
 }
 
-.menuPrincipal > ul {
+.menu {
     display: flex;
-    list-style: none;
     padding: 0px;
 }
 
-.menuPrincipal > ul > li {
-    margin-right: 20px;
+.menu > .bouton {
+    margin-left: 0px;
+    margin-right: 10px;
 }
 
-.contenuGlobal {
+.menu__web {
+    display: inherit;
+}
+
+.menu__resp {
+    display: none;
+}
+
+.contenu {
     display: flex;
     align-items: start;
+    margin-top: 20px;
 }
 
 .biographie {
     width: 30%;
-    margin-right: 50px;
+    margin-right: 20px;
 }
 
-.biographieEntete > img {
+.biographie__entete > img {
     width: 35%;
 }
 
-.biographieEntete,
-.biographieContenu > h1 {
+.biographie__entete,
+.biographie__contenu > h1 {
     text-align: center;
 }
 
@@ -85,17 +94,17 @@ i {
     margin: 0px 10px;
 }
 
-.presentationEntete {
+.presentation__entete {
     text-align: center;
 }
 
-.presentationEntete > img {
+.presentation__entete > img {
     width: 35%;
 }
 
-.presentationContenu > ul {
-    padding: 0px;
+.presentation__contenu > ul {
     list-style: none;
+    padding-left: 0px;
 }
 
 .bouton {
@@ -143,4 +152,20 @@ i {
 .msgInfo {
     background-color: #4ba852;
     color: #fff;
+}
+
+/*
+    footer
+*/
+
+footer {
+    margin-top: 20px;
+}
+
+footer > h4 {
+    margin: 10px 0px;
+}
+
+footer > p {
+    margin: 5px 0px;
 }
