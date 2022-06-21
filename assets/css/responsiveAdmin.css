@@ -1,0 +1,101 @@
+@media (max-width: 1500px) {
+
+    h1,h2,h3,h4,p {
+        margin: 10px;
+    }
+
+    .dimension {
+        margin: 43px 0px!important;
+    }
+
+    .connexion {
+        width: 100%;
+        padding: 0px;
+        border: none;
+    }
+
+    main.admin {
+        margin-top: 43px;
+    }
+
+    .menuDashboard {
+        width: 10%;
+    }
+
+    .carteAdmin {
+        margin: 0px;
+    }
+
+    .menuAdmin__web {
+        display: none;
+    }
+
+    .menuAdmin__resp {
+        display: block;
+    }
+
+    .boutonMenuDashboard > i {
+        margin: 0px;
+    }
+
+    .formEditer {
+        display: block;
+    }
+
+    .parametre {
+        width: 100%;
+    }
+
+    /* Tableau */
+
+    table, thead, tbody, tr, th, td {
+        display: block;
+    }
+
+    table {
+        border: none!important;
+        background-color: transparent!important;
+    }
+
+    thead {
+        display: none!important;
+    }
+
+    td {
+        position: relative;
+        background-color: #fff!important;
+        padding-left: 150px!important;
+    }
+
+
+
+    td::before {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 130px;
+        bottom: 0;
+        display: flex;
+        align-content: center;
+        padding-left: 10px;
+        font-weight: bold;
+        content: attr(data-label);
+        color: #fff;
+        background-color: #7b7b7b;
+        padding-top: 5px
+    }
+
+    td:nth-child(odd) {
+        background-color: #ececec!important;
+    }
+
+    tr {
+        margin-bottom: 1rem;
+        border: 1px solid #7B7B7B;
+    }
+
+    .inputSpe {
+        width: 100%;
+    }
+
+}

@@ -45,7 +45,7 @@
 main.admin {
     display: flex;
     margin: 0px;
-    margin-top: 50px;
+    margin-top: 43px;
 }
 
 /*
@@ -77,6 +77,10 @@ main.admin {
 
 .boutonMenuDashboard:hover {
     background-color: #484848;
+}
+
+.menuAdmin__resp {
+    display: none;
 }
 
 /*
