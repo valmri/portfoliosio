@@ -79,6 +79,10 @@ main.admin {
     background-color: #484848;
 }
 
+.menuAdmin__resp {
+    display: none;
+}
+
 /*
     Contenu page
 */
