@@ -25,16 +25,18 @@ class AcquisManager extends ManagerPrincipal
 
         try {
 
-            $pdo = $this->getPDO();
-            $sql = "insert into acquis(id_projet, id_competence, description, dateCreation) values(:id_projet, :id_competence, :description, now());";
-            $requete = $pdo->prepare($sql);
-            $requete->bindValue(':id_projet', $acquis->getIdProjet(), PDO::PARAM_INT);
-            $requete->bindValue(':id_competence', $acquis->getIdCompetence(), PDO::PARAM_INT);
-            $requete->bindValue(':description', $acquis->getDescription(), PDO::PARAM_STR);
-            $resultat = $requete->execute();
+            $existe = $this->isExistant($acquis->getIdProjet(), $acquis->getIdCompetence());
 
-            if(!$resultat) {
-                throw new AcquisInvalide('Acquis déjà existant.');
+            if($existe) {
+                $pdo = $this->getPDO();
+                $sql = "insert into acquis(id_projet, id_competence, description, dateCreation) values(:id_projet, :id_competence, :description, now());";
+                $requete = $pdo->prepare($sql);
+                $requete->bindValue(':id_projet', $acquis->getIdProjet(), PDO::PARAM_INT);
+                $requete->bindValue(':id_competence', $acquis->getIdCompetence(), PDO::PARAM_INT);
+                $requete->bindValue(':description', $acquis->getDescription(), PDO::PARAM_STR);
+                $resultat = $requete->execute();
+            } else {
+                $resultat = false;
             }
 
         } catch (Exception $e) {
@@ -191,6 +193,42 @@ class AcquisManager extends ManagerPrincipal
         }
 
         return $resultat;
+
+    }
+
+    /**
+     * Vérifie l'existence d'un acquis
+     * @param int $projetId
+     * @param int $competenceId
+     * @return bool|Exception
+     */
+    public function isExistant(int $projetId, int $competenceId)
+    {
+
+        try {
+
+            $pdo = $this->getPDO();
+            $sql = "select count(*) as nb from acquis a where a.id_projet = :idP and a.id_competence = :idC;";
+            $requete = $pdo->prepare($sql);
+            $requete->bindValue(':idP', $projetId, PDO::PARAM_INT);
+            $requete->bindValue(':idC', $competenceId, PDO::PARAM_INT);
+            $requete->execute();
+            $reponse = $requete->fetch(PDO::FETCH_ASSOC);
+
+            if($reponse['nb'] > 0) {
+                $resultat = false;
+            } else {
+                $resultat = true;
+            }
+
+        } catch (Exception $e) {
+
+            $resultat = $e;
+
+        }
+
+        return $resultat;
+
 
     }
 

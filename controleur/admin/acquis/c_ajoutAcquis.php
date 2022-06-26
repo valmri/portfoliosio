@@ -30,13 +30,13 @@ if (isset($_POST['projetId']) && isset($_POST['competenceId']) && isset($_POST['
     $competenceId = filter_input(INPUT_POST, 'competenceId', FILTER_SANITIZE_NUMBER_INT);
     $contenu = htmlspecialchars($_POST['contenu'], ENT_QUOTES);
 
-    // Mise à jour des données
-    $acquis = new Acquis();
-    $acquis->setIdProjet($projetId);
-    $acquis->setIdCompetence($competenceId);
-    $acquis->setDescription($contenu);
-
     try {
+
+        // Mise à jour des données
+        $acquis = new Acquis();
+        $acquis->setIdProjet($projetId);
+        $acquis->setIdCompetence($competenceId);
+        $acquis->setDescription($contenu);
 
         $modifSucces = $acquisManager->create($acquis);
 
