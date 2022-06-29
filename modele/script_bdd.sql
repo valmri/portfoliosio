@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le : sam. 18 juin 2022 à 03:27
+-- Généré le : mer. 29 juin 2022 à 20:15
 -- Version du serveur : 10.3.31-MariaDB
 -- Version de PHP : 7.3.29
 
@@ -18,7 +18,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Base de données : `gffnasqq_sandbox_portfolio`
+-- Base de données : `portfoliosio`
 --
 
 -- --------------------------------------------------------
@@ -115,6 +115,13 @@ CREATE TABLE `page` (
                         `dateCreation` datetime DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Déchargement des données de la table `page`
+--
+
+INSERT INTO `page` (`id`, `id_utilisateur`, `cle`, `titre`, `contenu`, `icone`, `dateModification`, `dateCreation`) VALUES
+    (16, 1, 'accueil', 'Accueil', '&lt;p&gt;Bienvenue sur l&amp;#39;application PortfolioSIO !&lt;/p&gt;\r\n\r\n&lt;p&gt;Cet outil &amp;agrave; destination des &amp;eacute;tudiants du BTS SIO, SISR et SLAM, permet de faciliter la r&amp;eacute;alisation de son portfolio pour l&amp;#39;&amp;eacute;preuve E4 qui consiste &amp;agrave; pr&amp;eacute;senter les comp&amp;eacute;tences acquises sur les deux ann&amp;eacute;es de la formation.&amp;nbsp;&amp;nbsp;&lt;/p&gt;\r\n', 'las la-home', '2022-06-21 16:22:41', NULL);
+
 -- --------------------------------------------------------
 
 --
@@ -159,7 +166,7 @@ CREATE TABLE `utilisateur` (
 --
 
 INSERT INTO `utilisateur` (`id`, `mel`, `prenom`, `motDePasse`, `dateConnexion`, `photo`, `nom`, `biographie`) VALUES
-    (1, 'admin@portfoliosio.fr', 'Admini', '$2y$10$QXTrzo0QFjgxSsh0Uj1C3OFE8eIxKV9Z7qKxDJI4jHLvlwdE0/bAu', '2022-06-15 16:06:24', 'P1506202220222022150643', 'Strateur', 'Vive le pouvoir..');
+    (1, 'admin@portfoliosio.fr', 'John', '$2y$10$bRkQXQMAg3U2hQavtIQele/YKt3fVk6dmSjRr0BkXENWc1.AeKWdi', NULL, 'P2706202220222022180655', 'Doe', 'Futur développeur en 2e année de BTS SIO en option SLAM.');
 
 --
 -- Index pour les tables déchargées
@@ -169,7 +176,6 @@ INSERT INTO `utilisateur` (`id`, `mel`, `prenom`, `motDePasse`, `dateConnexion`,
 -- Index pour la table `acquis`
 --
 ALTER TABLE `acquis`
-    ADD PRIMARY KEY (`id_competence`),
     ADD KEY `FK_ACQUIS_PROJET` (`id_projet`),
     ADD KEY `FK_ACQUIS_COMPETENCE` (`id_competence`);
 
@@ -214,19 +220,19 @@ ALTER TABLE `utilisateur`
 -- AUTO_INCREMENT pour la table `activite`
 --
 ALTER TABLE `activite`
-    MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+    MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT pour la table `competence`
 --
 ALTER TABLE `competence`
-    MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+    MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
 
 --
 -- AUTO_INCREMENT pour la table `page`
 --
 ALTER TABLE `page`
-    MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+    MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1;
 
 --
 -- AUTO_INCREMENT pour la table `projet`
@@ -238,7 +244,7 @@ ALTER TABLE `projet`
 -- AUTO_INCREMENT pour la table `utilisateur`
 --
 ALTER TABLE `utilisateur`
-    MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+    MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1;
 
 --
 -- Contraintes pour les tables déchargées
