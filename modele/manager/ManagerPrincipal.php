@@ -36,13 +36,13 @@ class ManagerPrincipal {
         $this->serveur = "localhost";
 
         // Nom de la base de données
-        $this->bd = "gffnasqq_sandbox_portfolio";
+        $this->bd = "portfoliosio";
 
         // Identifiant de la base de données
-        $this->identifiant = "gffnasqq_public";
+        $this->identifiant = "";
 
         // Mot de passe de la base de données
-        $this->mdp = "S4NEKtwGBtz2JFt";
+        $this->mdp = "";
     }
 
     /**
