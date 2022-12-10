@@ -39,7 +39,7 @@ class ManagerPrincipal {
         $this->bd = "portfoliosio";
 
         // Identifiant de la base de données
-        $this->identifiant = "";
+        $this->identifiant = "root";
 
         // Mot de passe de la base de données
         $this->mdp = "";

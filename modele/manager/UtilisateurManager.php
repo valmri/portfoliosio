@@ -2,7 +2,7 @@
 
 namespace manager;
 
-require_once './modele/exception/UtilisateurInvalide.php';
+require_once $_SERVER['DOCUMENT_ROOT'].'/modele/exception/UtilisateurInvalide.php';
 
 use entite\Utilisateur;
 use exception\UtilisateurInvalide;

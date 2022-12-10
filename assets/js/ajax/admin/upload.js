@@ -24,7 +24,7 @@ function getRequeteHttp() {
     return requeteHttp;
 }
 
-function upload(image, type) {
+function upload(image, type, idUtilisateur) {
 
     var requeteHTTP = getRequeteHttp();
 
@@ -48,6 +48,7 @@ function upload(image, type) {
 
                 formData.append('image', image.files[0], image.files[0].name);
                 formData.append('type', type);
+                formData.append('id', idUtilisateur);
 
                 // Préparation de la requête
                 requeteHTTP.open("POST", "./controleur/admin/php-xml/upload.php", true);
@@ -105,8 +106,12 @@ function uploadResultat(requeteHttp) {
                     let nomImage = document.getElementById('imageProjet');
                     nomImage.value = nom;
                 } else if(type === 'compte') {
-                    let nomImage = document.getElementById('photo');
-                    nomImage.value = nom;
+                    let photoBox = document.getElementById('photoUpdate');
+                    photoBox.src = "./assets/img/compte/"+nom;
+                    photoBox.style = 'diplay:block';
+
+                    let photoActuelle = document.getElementById('photoActuelle');
+                    photoActuelle.remove();
                 }
 
                 Swal.fire({

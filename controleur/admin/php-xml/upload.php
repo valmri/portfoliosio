@@ -1,10 +1,17 @@
 <?php
+
+use manager\UtilisateurManager;
+require_once '../../../modele/entite/Utilisateur.php';
 require_once '../../../modele/manager/ManagerPrincipal.php';
 
 // Récupération des données
 
 if(isset($_POST['type'])) {
     $typeImage = $_POST['type'];
+}
+
+if(isset($_POST['id'])) {
+    $idUtilisateur = $_POST['id'];
 }
 
 if(isset($_POST['image'])) {
@@ -42,8 +49,15 @@ if($typeImage === 'logo') {
     $_FILES['image']['name'] = 'I'.date('dmYYYHms');
     $uploadImage = '../../../assets/img/projets/'.basename($_FILES['image']['name']);
 } elseif($typeImage == 'compte') {
+    require_once '../../../modele/manager/UtilisateurManager.php';
+
     $_FILES['image']['name'] = 'P'.date('dmYYYHms');
     $uploadImage = '../../../assets/img/compte/'.basename($_FILES['image']['name']);
+
+    $utilisateurManager = new UtilisateurManager();
+    $utilisateur = $utilisateurManager->read((int)$idUtilisateur);
+    $utilisateur->setPhoto(basename($_FILES['image']['name']));
+    $utilisateurManager->update($utilisateur);
 }
 
 // Téléversement

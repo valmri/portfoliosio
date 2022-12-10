@@ -24,16 +24,16 @@
             <div class="editeur">
 
                 <label for="nom">Nom :</label><br/>
-                <input class="inputSpe" type="text" name="nom" value="<?= $_SESSION['utilisateur']->getNom() ?>"></br>
+                <input class="inputSpe" type="text" name="nom" value="<?= $utilisateur->getNom() ?>"></br>
 
                 <label for="prenom">Prenom :</label><br/>
-                <input class="inputSpe" type="text" name="prenom" value="<?= $_SESSION['utilisateur']->getPrenom() ?>"></br>
+                <input class="inputSpe" type="text" name="prenom" value="<?= $utilisateur->getPrenom() ?>"></br>
 
                 <label for="mel">Adresse-mél :</label><br/>
-                <input class="inputSpe" type="text" name="mel" value="<?= $_SESSION['utilisateur']->getMel() ?>"></br>
+                <input class="inputSpe" type="text" name="mel" value="<?= $utilisateur->getMel() ?>"></br>
 
                 <label for="mel">Biographie :</label><br/>
-                <textarea class="inputSpe" name="biographie" id="biographie" cols="30" rows="10"><?= $_SESSION['utilisateur']->getBiographie() ?></textarea></br>
+                <textarea class="inputSpe" name="biographie" id="biographie" cols="30" rows="10"><?= $utilisateur->getBiographie() ?></textarea></br>
 
                 <button class="btnAdmin btnPost" type="submit">
                     <i class="las la-save"></i>
@@ -44,13 +44,13 @@
 
             <div class="parametre">
                 <label for="photo">Photo :</label><br/>
-                <?php if(!empty($_SESSION['utilisateur']->getPhoto())) : ?>
-                    <img src="./assets/img/compte/<?= $_SESSION['utilisateur']->getPhoto() ?>" alt="<?= $_SESSION['utilisateur']->getPrenom() ?>" width="35%">
+                <?php if(!empty($utilisateur->getPhoto())) : ?>
+                    <img src="./assets/img/compte/<?= $utilisateur->getPhoto() ?>" alt="<?= $utilisateur->getPrenom() ?>" width="35%" id="photoActuelle">
                 <?php endif; ?>
-
+                <img src="" alt="<?= $utilisateur->getPrenom() ?>" width="35%" style="display:none" id="photoUpdate">
                 <input type="hidden" name="MAX_FILE_SIZE" value="1000000" />
-                <input id="photo" type="hidden" name="photo" value="<?= $_SESSION['utilisateur']->getPhoto() ?>">
-                <input class="inputSpe" type="file" accept="image/png, image/jpeg" onchange="upload(this, 'compte')"></br>
+                <input id="photo" type="hidden" name="photo">
+                <input class="inputSpe" type="file" accept="image/png, image/jpeg" onchange="upload(this, 'compte', <?= $utilisateur->getId() ?>)"></br>
 
             </div>
 

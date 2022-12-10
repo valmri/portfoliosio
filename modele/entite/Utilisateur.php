@@ -66,17 +66,17 @@ class Utilisateur
     }
 
     /**
-     * @return string
+     * @return ?string
      */
-    public function getPhoto(): string
+    public function getPhoto(): ?string
     {
         return $this->photo;
     }
 
     /**
-     * @param string $photo
+     * @param void $photo
      */
-    public function setPhoto(string $photo): void
+    public function setPhoto($photo): void
     {
         $this->photo = $photo;
     }

@@ -7,26 +7,22 @@ use entite\Utilisateur;
 use manager\UtilisateurManager;
 
 $utilisateurManager = new UtilisateurManager();
+$utilisateur = $utilisateurManager->read($_SESSION['utilisateur']->getId());
 
 // Cas des informations globales
 if(
-    isset($_POST['photo']) &&
     isset($_POST['nom']) &&
     isset($_POST['prenom']) &&
     isset($_POST['mel']) &&
     isset($_POST['biographie'])
 ) {
 
-    $photo = $_POST['photo'];
     $nom = filter_input(INPUT_POST, 'nom', FILTER_SANITIZE_STRING);
     $prenom = filter_input(INPUT_POST, 'prenom', FILTER_SANITIZE_STRING);
     $mel = filter_input(INPUT_POST, 'mel', FILTER_SANITIZE_EMAIL);
     $bio = filter_input(INPUT_POST, 'biographie', FILTER_SANITIZE_STRING);
 
     // Mise à jour des données en base de données
-    $utilisateur = new Utilisateur();
-    $utilisateur->setId($_SESSION['utilisateur']->getId());
-    $utilisateur->setPhoto($photo);
     $utilisateur->setNom($nom);
     $utilisateur->setPrenom($prenom);
     $utilisateur->setMel($mel);
@@ -35,7 +31,6 @@ if(
     $majSucces = $utilisateurManager->update($utilisateur);
 
     // Mise à jour des données en locale
-    $_SESSION['utilisateur']->setPhoto($photo);
     $_SESSION['utilisateur']->setNom($nom);
     $_SESSION['utilisateur']->setPrenom($prenom);
     $_SESSION['utilisateur']->setMel($mel);
